@@ -544,15 +544,15 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
 }
-.p-1 {
-  padding: 0.25rem;
-}
 .font-sans {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .text-7xl {
   font-size: 4.5rem;
   line-height: 1;
+}
+.italic {
+  font-style: italic;
 }
 .text-gray-800 {
   --tw-text-opacity: 1;
@@ -569,4 +569,4 @@ video {
 
 /** Modify your Tailwind layers etc. here **/
 
-h1.svelte-1emg3ck{border-bottom-width:4px}h1.svelte-1emg3ck:hover{border-color:rgb(255, 136, 0)}a.svelte-1emg3ck{border-radius:0.5rem;padding:0.25rem}a.svelte-1emg3ck:hover{border-bottom:2px;background-color:#dc2626;color:#d1d5db}
+textarea.svelte-edipxk{width:100%;height:200px}
