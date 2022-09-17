@@ -29,5 +29,17 @@ export const languages = {
       en: "Shoot Photo",
       it: "Scatta una foto",
     },
+    useNativeCamera: {
+      en: "Use Native Camera",
+      it: "Usa l'app nativa",
+    },
+    chooseFiles: {
+      en: "Choose Files",
+      it: "Scegli i file",
+    },
+    selectedFiles: {
+      en: "Selected Files",
+      it: "File selezionati",
+    },
   },
 };
