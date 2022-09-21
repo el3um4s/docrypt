@@ -7,6 +7,7 @@
   import CameraInput from "./Components/UI/CameraInput.svelte";
   import CameraMedia from "./Components/UI/CameraMedia.svelte";
   import SaveBase64File from "./Components/UI/SaveBase64File.svelte";
+  import ShareBase64File from "./Components/UI/ShareBase64File.svelte";
 
   const VERSION = "[VI]Version: {version} - built on {date}[/VI]";
 </script>
@@ -17,7 +18,7 @@
   <ChooseLanguage />
 
   <h3><Lang c="menu" v="encrypt" /></h3>
-  <SaveBase64File />
+  <SaveBase64File /><ShareBase64File />
   <button><Lang c="menu" v="documents" /></button>
   <UploadFile />
   <button><Lang c="menu" v="message" /></button>
