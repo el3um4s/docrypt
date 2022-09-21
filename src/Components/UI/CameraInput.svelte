@@ -11,7 +11,7 @@
 
 <div>
   <label for="cameraFileInput">
-    <span class="btn"><Lang c="menu" v="useNativeCamera" /></span>
+    <span class="button-action"><Lang c="menu" v="useNativeCamera" /></span>
 
     <!-- The hidden file `input` for opening the native camera -->
     <input
@@ -66,7 +66,7 @@
     margin-top: 16px;
   }
 
-  .btn {
+  /* .btn {
     display: inline-block;
     background-color: #00b531;
     color: white;
@@ -78,5 +78,5 @@
 
   .btn:hover {
     filter: brightness(0.9);
-  }
+  } */
 </style>
