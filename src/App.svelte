@@ -6,7 +6,7 @@
   import MarkedText from "./Components/UI/MarkedText.svelte";
   import CameraInput from "./Components/UI/CameraInput.svelte";
   import CameraMedia from "./Components/UI/CameraMedia.svelte";
-  import textToConverter from "./Stores/TextToConverter";
+  import SaveBase64File from "./Components/UI/SaveBase64File.svelte";
 
   const VERSION = "[VI]Version: {version} - built on {date}[/VI]";
 </script>
@@ -15,18 +15,9 @@
   <h1>DoCrypt</h1>
 
   <ChooseLanguage />
-  <button
-    on:click={async () => {
-      const fileHandle = await globalThis.showSaveFilePicker();
-      const fileStream = await fileHandle.createWritable();
-      await fileStream.write(
-        new Blob([$textToConverter], { type: "text/plain" })
-      );
-      await fileStream.close();
-    }}>Save Base64 File</button
-  >
 
   <h3><Lang c="menu" v="encrypt" /></h3>
+  <SaveBase64File />
   <button><Lang c="menu" v="documents" /></button>
   <UploadFile />
   <button><Lang c="menu" v="message" /></button>
