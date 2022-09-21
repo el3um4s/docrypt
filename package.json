@@ -1,6 +1,6 @@
 {
   "name": "docrypt",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Encrypt and decrypt documents and images in your browser",
   "scripts": {
     "clean": "node clean-build.js",
