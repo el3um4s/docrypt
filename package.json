@@ -2,6 +2,14 @@
   "name": "docrypt",
   "version": "0.0.6",
   "description": "Encrypt and decrypt documents and images in your browser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/el3um4s/docrypt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/el3um4s/docrypt/issues"
+  },
+  "homepage": "https://github.com/el3um4s/docrypt#readme",
   "scripts": {
     "clean": "node clean-build.js",
     "build": "npm run clean && rollup -c",
