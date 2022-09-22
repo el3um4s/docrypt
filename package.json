@@ -9,7 +9,7 @@
   "bugs": {
     "url": "https://github.com/el3um4s/docrypt/issues"
   },
-  "homepage": "https://github.com/el3um4s/docrypt#readme",
+  "homepage": "https://docrypt.org",
   "scripts": {
     "clean": "node clean-build.js",
     "build": "npm run clean && rollup -c",

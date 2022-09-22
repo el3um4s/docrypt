@@ -2,6 +2,9 @@ import {
     publish
 } from 'gh-pages';
 
+
+
+
 publish(
     'public', // path to public directory
     {
@@ -13,7 +16,12 @@ publish(
         },
         dotfiles: true
     },
-    () => {
-        console.log('Deploy Complete!');
+    (err) => {
+        try {
+            console.log('Deploy Complete!');
+        } catch (e) {
+            console.error(e.stack);
+            process.exit(1);
+        }
     }
 );
