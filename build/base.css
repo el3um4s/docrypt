@@ -746,9 +746,6 @@ video {
 .font-semibold {
   font-weight: 600;
 }
-.italic {
-  font-style: italic;
-}
 .text-\[color\:var\(--color\)\] {
   color: var(--color);
 }
