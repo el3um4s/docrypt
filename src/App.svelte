@@ -10,9 +10,12 @@
   import ShareBase64File from "./Components/UI/ShareBase64File.svelte";
   import VersionNumber from "./Components/UI/VersionNumber.svelte";
 
-  import textToConverter from "./Stores/TextToConverter";
+  import ShareBase64Text from "./Components/UI/ShareBase64Text.svelte";
 
-  let component = File;
+  import textToConverter from "./Stores/TextToConverter";
+  import status from "./Stores/Status";
+
+  let component = null;
 
   let password = "";
 </script>
@@ -24,26 +27,76 @@
 <main>
   <h1>DoCrypt</h1>
 
-  <div>
-    <button><Lang c="menu" v="encrypt" /></button>
-    <button><Lang c="menu" v="decrypt" /></button>
+  {#if $status != "start"}
+    <button
+      on:click={() => {
+        status.set("start");
+        component = null;
+        textToConverter.set("");
+      }}>Start</button
+    >
+  {/if}
 
-    <input bind:value={password} placeholder="password" />
-  </div>
+  {#if $status == "start"}
+    <div>
+      <button
+        on:click={() => {
+          status.set("encrypt");
+          textToConverter.set("");
+        }}><Lang c="menu" v="encrypt" /></button
+      >
+      <button
+        on:click={() => {
+          status.set("decrypt");
+          textToConverter.set("");
+        }}><Lang c="menu" v="decrypt" /></button
+      >
+    </div>
+  {/if}
 
-  <ChooseLanguage />
+  {#if $status == "encrypt" && component == null}
+    <div>
+      <button
+        on:click={() => {
+          component = MarkedText;
+          textToConverter.set("");
+        }}><Lang c="menu" v="message" /></button
+      >
+      <!-- <button on:click={() => (component = File)}
+        ><Lang c="menu" v="files" /></button
+      > -->
+    </div>
+  {/if}
 
-  <div>
+  {#if $status != "start"}
+    <svelte:component this={component} />
+  {/if}
+
+  {#if $status == "encrypt" && component && $textToConverter != ""}
+    <div>
+      <input bind:value={password} placeholder="password" />
+    </div>
+
+    {#if component != MarkedText}
+      <div>
+        <SaveBase64File /><ShareBase64File />
+      </div>
+    {/if}
+
+    {#if component == MarkedText}
+      <ShareBase64Text />
+    {/if}
+  {/if}
+  <!-- <div>
     <button>Original</button>
     <button>Transformed</button>
-  </div>
+  </div> -->
 
   <div>
+    <!--
+    
     <button on:click={() => (component = File)}
       ><Lang c="menu" v="files" /></button
-    >
-    <!-- <button on:click={() => (component = MarkedText)}
-      ><Lang c="menu" v="message" /></button
     >
     <button on:click={() => (component = CameraInput)}
       ><Lang c="menu" v="photoNative" /></button
@@ -53,11 +106,7 @@
     > -->
   </div>
 
-  <svelte:component this={component} />
-
-  {#if $textToConverter != ""}
-    <SaveBase64File /><ShareBase64File />
-  {/if}
+  <ChooseLanguage />
   <VersionNumber />
 </main>
 
