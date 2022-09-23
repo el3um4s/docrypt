@@ -2,7 +2,7 @@
   import "./css/tailwind.pcss";
   import Lang from "./Components/Default/Lang.svelte";
   import ChooseLanguage from "./Components/UI/ChooseLanguage.svelte";
-  import UploadFile from "./Components/UI/UploadFile.svelte";
+  import File from "./Components/UI/File.svelte";
   import MarkedText from "./Components/UI/MarkedText.svelte";
   import CameraInput from "./Components/UI/CameraInput.svelte";
   import CameraMedia from "./Components/UI/CameraMedia.svelte";
@@ -10,9 +10,14 @@
   import ShareBase64File from "./Components/UI/ShareBase64File.svelte";
   import VersionNumber from "./Components/UI/VersionNumber.svelte";
 
-  const VERSION = "[VI]Version: {version} - built on {date}[/VI]";
+  import ShareBase64Text from "./Components/UI/ShareBase64Text.svelte";
 
-  let component = MarkedText;
+  import textToConverter from "./Stores/TextToConverter";
+  import status from "./Stores/Status";
+
+  let component = null;
+
+  let password = "";
 </script>
 
 <svelte:head>
@@ -22,21 +27,86 @@
 <main>
   <h1>DoCrypt</h1>
 
-  <ChooseLanguage />
-  <svelte:component this={component} />
+  {#if $status != "start"}
+    <button
+      on:click={() => {
+        status.set("start");
+        component = null;
+        textToConverter.set("");
+      }}>Start</button
+    >
+  {/if}
 
-  <h3><Lang c="menu" v="encrypt" /></h3>
-  <SaveBase64File /><ShareBase64File />
-  <button><Lang c="menu" v="documents" /></button>
-  <UploadFile />
-  <button><Lang c="menu" v="message" /></button>
-  <MarkedText />
-  <button><Lang c="menu" v="shootPhoto" /></button>
-  <CameraInput />
-  <CameraMedia />
-  <h3><Lang c="menu" v="decrypt" /></h3>
-  <button><Lang c="menu" v="documents" /></button>
-  <button><Lang c="menu" v="message" /></button>
+  {#if $status == "start"}
+    <div>
+      <button
+        on:click={() => {
+          status.set("encrypt");
+          textToConverter.set("");
+        }}><Lang c="menu" v="encrypt" /></button
+      >
+      <button
+        on:click={() => {
+          status.set("decrypt");
+          textToConverter.set("");
+        }}><Lang c="menu" v="decrypt" /></button
+      >
+    </div>
+  {/if}
+
+  {#if $status == "encrypt" && component == null}
+    <div>
+      <button
+        on:click={() => {
+          component = MarkedText;
+          textToConverter.set("");
+        }}><Lang c="menu" v="message" /></button
+      >
+      <!-- <button on:click={() => (component = File)}
+        ><Lang c="menu" v="files" /></button
+      > -->
+    </div>
+  {/if}
+
+  {#if $status != "start"}
+    <svelte:component this={component} />
+  {/if}
+
+  {#if $status == "encrypt" && component && $textToConverter != ""}
+    <div>
+      <input bind:value={password} placeholder="password" />
+    </div>
+
+    {#if component != MarkedText}
+      <div>
+        <SaveBase64File /><ShareBase64File />
+      </div>
+    {/if}
+
+    {#if component == MarkedText}
+      <ShareBase64Text />
+    {/if}
+  {/if}
+  <!-- <div>
+    <button>Original</button>
+    <button>Transformed</button>
+  </div> -->
+
+  <div>
+    <!--
+    
+    <button on:click={() => (component = File)}
+      ><Lang c="menu" v="files" /></button
+    >
+    <button on:click={() => (component = CameraInput)}
+      ><Lang c="menu" v="photoNative" /></button
+    >
+    <button on:click={() => (component = CameraMedia)}
+      ><Lang c="menu" v="photoWebCam" /></button
+    > -->
+  </div>
+
+  <ChooseLanguage />
   <VersionNumber />
 </main>
 
