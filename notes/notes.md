@@ -12,3 +12,7 @@
 
 [Reduce base64 image file size | JavaScript](https://www.youtube.com/watch?v=fe062UdOKuo)
 [https://github.com/Gimyk/resize_base64_image/blob/main/main.js](https://github.com/Gimyk/resize_base64_image/blob/main/main.js)
+
+[micro-aes-gcm](https://github.com/paulmillr/micro-aes-gcm)
+[sjcl](https://github.com/bitwiseshiftleft/sjcl)
+[Stanford Javascript Crypto Library](https://bitwiseshiftleft.github.io/sjcl/)
