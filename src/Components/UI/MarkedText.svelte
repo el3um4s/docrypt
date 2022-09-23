@@ -9,9 +9,6 @@
   let showPlain = true;
 
   $: if (text != "") {
-    // Note that `files` is of type `FileList`, not an Array:
-    // https://developer.mozilla.org/en-US/docs/Web/API/FileList
-    // console.log(files);
     const name = "message.txt";
     const type = "text/plain";
     const size = text.length;
