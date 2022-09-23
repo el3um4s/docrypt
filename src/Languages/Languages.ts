@@ -21,9 +21,13 @@ export const languages = {
       en: "Documents",
       it: "Documenti",
     },
+    files: {
+      en: "Files",
+      it: "File",
+    },
     message: {
-      en: "Text Message",
-      it: "Messaggio di testo",
+      en: "Text",
+      it: "Testo",
     },
     shootPhoto: {
       en: "Shoot Photo",
@@ -37,9 +41,25 @@ export const languages = {
       en: "Choose Files",
       it: "Scegli i file",
     },
-    selectedFiles: {
-      en: "Selected Files",
-      it: "File selezionati",
+    selectedFile: {
+      en: "Selected File",
+      it: "File selezionato",
+    },
+    photoNative: {
+      en: "Photo (app)",
+      it: "Foto (app)",
+    },
+    photoWebCam: {
+      en: "Photo (webcam)",
+      it: "Foto (webcam)",
+    },
+    showPlainText: {
+      en: "Plain Text",
+      it: "Testo",
+    },
+    showRenderedText: {
+      en: "Rendered Text",
+      it: "HTML",
     },
   },
 };

@@ -2,7 +2,7 @@
   import "./css/tailwind.pcss";
   import Lang from "./Components/Default/Lang.svelte";
   import ChooseLanguage from "./Components/UI/ChooseLanguage.svelte";
-  import UploadFile from "./Components/UI/UploadFile.svelte";
+  import File from "./Components/UI/File.svelte";
   import MarkedText from "./Components/UI/MarkedText.svelte";
   import CameraInput from "./Components/UI/CameraInput.svelte";
   import CameraMedia from "./Components/UI/CameraMedia.svelte";
@@ -10,9 +10,11 @@
   import ShareBase64File from "./Components/UI/ShareBase64File.svelte";
   import VersionNumber from "./Components/UI/VersionNumber.svelte";
 
-  const VERSION = "[VI]Version: {version} - built on {date}[/VI]";
+  import textToConverter from "./Stores/TextToConverter";
 
-  let component = MarkedText;
+  let component = File;
+
+  let password = "";
 </script>
 
 <svelte:head>
@@ -22,21 +24,40 @@
 <main>
   <h1>DoCrypt</h1>
 
+  <div>
+    <button><Lang c="menu" v="encrypt" /></button>
+    <button><Lang c="menu" v="decrypt" /></button>
+
+    <input bind:value={password} placeholder="password" />
+  </div>
+
   <ChooseLanguage />
+
+  <div>
+    <button>Original</button>
+    <button>Transformed</button>
+  </div>
+
+  <div>
+    <button on:click={() => (component = File)}
+      ><Lang c="menu" v="files" /></button
+    >
+    <!-- <button on:click={() => (component = MarkedText)}
+      ><Lang c="menu" v="message" /></button
+    >
+    <button on:click={() => (component = CameraInput)}
+      ><Lang c="menu" v="photoNative" /></button
+    >
+    <button on:click={() => (component = CameraMedia)}
+      ><Lang c="menu" v="photoWebCam" /></button
+    > -->
+  </div>
+
   <svelte:component this={component} />
 
-  <h3><Lang c="menu" v="encrypt" /></h3>
-  <SaveBase64File /><ShareBase64File />
-  <button><Lang c="menu" v="documents" /></button>
-  <UploadFile />
-  <button><Lang c="menu" v="message" /></button>
-  <MarkedText />
-  <button><Lang c="menu" v="shootPhoto" /></button>
-  <CameraInput />
-  <CameraMedia />
-  <h3><Lang c="menu" v="decrypt" /></h3>
-  <button><Lang c="menu" v="documents" /></button>
-  <button><Lang c="menu" v="message" /></button>
+  {#if $textToConverter != ""}
+    <SaveBase64File /><ShareBase64File />
+  {/if}
   <VersionNumber />
 </main>
 

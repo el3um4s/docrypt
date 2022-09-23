@@ -5,6 +5,7 @@
   const saveFile = () => {
     // for the future
     // const showSaveFilePickerSupported = !!globalThis.showSaveFilePicker;
+    console.log($textToConverter);
     saveBase64FileAsText({
       text: $textToConverter,
       fileName: "DoCrypt.txt",
