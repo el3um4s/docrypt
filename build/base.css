@@ -795,8 +795,10 @@ video {
 
 /** Modify your Tailwind layers etc. here **/
 
-textarea.svelte-edipxk{width:100%;height:200px}
 #cameraFileInput.svelte-a6iv7t{display:none}.pictureFromCamera.svelte-a6iv7t{width:100%;height:auto;margin-top:16px}
+textarea.svelte-ebzv1t{width:100%;height:200px;padding:0.25em}
+section.svelte-1mnvu2k{overflow-wrap:break-word}
+textarea.svelte-ebzv1t{width:100%;height:200px;padding:0.25em}
 main.svelte-znj3dt {
     margin-left: auto;
     margin-right: auto;
