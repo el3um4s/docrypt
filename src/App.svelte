@@ -2,22 +2,25 @@
   import "./css/tailwind.pcss";
   import Lang from "./Components/Default/Lang.svelte";
   import ChooseLanguage from "./Components/UI/ChooseLanguage.svelte";
+
+  import Password from "./Components/UI/Password/Password.svelte";
+
   import File from "./Components/UI/File.svelte";
-  import MarkedText from "./Components/UI/MarkedText.svelte";
   import CameraInput from "./Components/UI/CameraInput.svelte";
   import CameraMedia from "./Components/UI/CameraMedia.svelte";
   import SaveBase64File from "./Components/UI/SaveBase64File.svelte";
   import ShareBase64File from "./Components/UI/ShareBase64File.svelte";
   import VersionNumber from "./Components/UI/VersionNumber.svelte";
 
-  import ShareBase64Text from "./Components/UI/ShareBase64Text.svelte";
+  import Encrypt_MarkedText from "./Components/UI/Encrypt/Encrypt_MarkedText.svelte";
+  import ShareBase64Text from "./Components/UI/Encrypt/Encrypt_ShareBase64Text.svelte";
+
+  import Decrypt_MarkedText from "./Components/UI/Decrypt/Decrypt_MarkedText.svelte";
 
   import textToConverter from "./Stores/TextToConverter";
   import status from "./Stores/Status";
 
   let component = null;
-
-  let password = "";
 </script>
 
 <svelte:head>
@@ -58,7 +61,21 @@
     <div>
       <button
         on:click={() => {
-          component = MarkedText;
+          component = Encrypt_MarkedText;
+          textToConverter.set("");
+        }}><Lang c="menu" v="message" /></button
+      >
+      <!-- <button on:click={() => (component = File)}
+        ><Lang c="menu" v="files" /></button
+      > -->
+    </div>
+  {/if}
+
+  {#if $status == "decrypt" && component == null}
+    <div>
+      <button
+        on:click={() => {
+          component = Decrypt_MarkedText;
           textToConverter.set("");
         }}><Lang c="menu" v="message" /></button
       >
@@ -73,17 +90,15 @@
   {/if}
 
   {#if $status == "encrypt" && component && $textToConverter != ""}
-    <div>
-      <input bind:value={password} placeholder="password" />
-    </div>
+    <Password />
 
-    {#if component != MarkedText}
+    {#if component != Encrypt_MarkedText}
       <div>
         <SaveBase64File /><ShareBase64File />
       </div>
     {/if}
 
-    {#if component == MarkedText}
+    {#if component == Encrypt_MarkedText}
       <ShareBase64Text />
     {/if}
   {/if}

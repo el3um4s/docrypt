@@ -1,21 +1,21 @@
 <script lang="ts">
-  import textToConverter from "../../Stores/TextToConverter";
+  import textToConverter from "../../../Stores/TextToConverter";
+  import password from "../../../Stores/Password";
+
   // import createBlobFromText from "../../Functions/CreateBlobFromText";
 
   // import * as aes from "micro-aes-gcm";
   import sjcl from "sjcl";
 
   $: base64 = JSON.parse($textToConverter).base64;
-  const shareText = () => {
-    navigator.share({ text: base64 } as ShareData);
-  };
 
   // https://github.com/paulmillr/micro-aes-gcm
-  const password = "ciao";
+  // let password = "";
   // const key = new TextEncoder().encode(keyString);
 
   // $: ciphertext = aes.encrypt(key, base64);
-  $: ciphertextPlain = sjcl.encrypt(password, base64);
+
+  $: ciphertextPlain = sjcl.encrypt($password, base64);
   // $: console.log(JSON.parse(ciphertextPlain));
 
   $: parseCipher = () => {
@@ -25,18 +25,28 @@
   };
 
   $: ciphertext = parseCipher();
+
+  const shareText = () => {
+    navigator.share({ text: ciphertext } as ShareData);
+  };
 </script>
 
-<div>
-  {base64}
-</div>
+<section>
+  <!-- <div>
+    {base64}
+  </div>
 
-<div>
-  {ciphertextPlain}
-</div>
+  <div>
+    {ciphertextPlain}
+  </div> -->
 
-<div>
   {ciphertext}
-</div>
+</section>
 
 <button on:click={shareText}>Share Crypted Text</button>
+
+<style lang="postcss">
+  section {
+    overflow-wrap: break-word;
+  }
+</style>
