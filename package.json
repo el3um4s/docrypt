@@ -47,10 +47,12 @@
     "typescript": "^4.8.3"
   },
   "dependencies": {
+    "@types/sjcl": "^1.0.30",
     "blob-polyfill": "^7.0.20220408",
     "file-saver": "^2.0.5",
     "marked": "^4.1.0",
-    "sirv-cli": "^2.0.2"
+    "sirv-cli": "^2.0.2",
+    "sjcl": "^1.0.8"
   },
   "type": "module"
 }
