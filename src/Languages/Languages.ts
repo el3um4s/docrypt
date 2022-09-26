@@ -61,5 +61,9 @@ export const languages = {
       en: "Rendered Text",
       it: "HTML",
     },
+    password: {
+      en: "Password",
+      it: "Password",
+    },
   },
 };

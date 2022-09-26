@@ -20,6 +20,8 @@
   import textToConverter from "./Stores/TextToConverter";
   import status from "./Stores/Status";
 
+  import GenerateQrCode from "./Components/UI/QRCode/GenerateQRCode.svelte";
+
   let component = null;
 </script>
 
@@ -36,7 +38,7 @@
         status.set("start");
         component = null;
         textToConverter.set("");
-      }}>Start</button
+      }}>Home</button
     >
   {/if}
 
@@ -53,6 +55,13 @@
           status.set("decrypt");
           textToConverter.set("");
         }}><Lang c="menu" v="decrypt" /></button
+      >
+      <button
+        on:click={() => {
+          status.set("password");
+          textToConverter.set("");
+          component = null;
+        }}><Lang c="menu" v="password" /></button
       >
     </div>
   {/if}
@@ -82,6 +91,12 @@
       <!-- <button on:click={() => (component = File)}
         ><Lang c="menu" v="files" /></button
       > -->
+    </div>
+  {/if}
+
+  {#if $status == "password"}
+    <div>
+      <GenerateQrCode />
     </div>
   {/if}
 
