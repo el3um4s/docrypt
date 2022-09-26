@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 
-type Status = "start" | "encrypt" | "decrypt";
+type Status = "start" | "encrypt" | "decrypt" | "password";
 
 const statusStore: Writable<Status> = writable("start");
 

@@ -20,6 +20,8 @@
   import textToConverter from "./Stores/TextToConverter";
   import status from "./Stores/Status";
 
+  import GenerateQrCode from "./Components/UI/QRCode/GenerateQRCode.svelte";
+
   let component = null;
 </script>
 
@@ -53,6 +55,12 @@
           status.set("decrypt");
           textToConverter.set("");
         }}><Lang c="menu" v="decrypt" /></button
+      >
+      <button
+        on:click={() => {
+          status.set("decrypt");
+          textToConverter.set("");
+        }}><Lang c="menu" v="password" /></button
       >
     </div>
   {/if}
@@ -121,6 +129,7 @@
     > -->
   </div>
 
+  <GenerateQrCode />
   <ChooseLanguage />
   <VersionNumber />
 </main>
