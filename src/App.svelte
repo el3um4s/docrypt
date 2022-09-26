@@ -38,7 +38,7 @@
         status.set("start");
         component = null;
         textToConverter.set("");
-      }}>Start</button
+      }}>Home</button
     >
   {/if}
 
@@ -58,8 +58,9 @@
       >
       <button
         on:click={() => {
-          status.set("decrypt");
+          status.set("password");
           textToConverter.set("");
+          component = null;
         }}><Lang c="menu" v="password" /></button
       >
     </div>
@@ -90,6 +91,12 @@
       <!-- <button on:click={() => (component = File)}
         ><Lang c="menu" v="files" /></button
       > -->
+    </div>
+  {/if}
+
+  {#if $status == "password"}
+    <div>
+      <GenerateQrCode />
     </div>
   {/if}
 
@@ -129,7 +136,6 @@
     > -->
   </div>
 
-  <GenerateQrCode />
   <ChooseLanguage />
   <VersionNumber />
 </main>
