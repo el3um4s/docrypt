@@ -640,6 +640,9 @@ video {
       border-radius: 0 0 0.25rem 0.25rem;
       border: 1px solid var(--sidebar-text-color);
 }
+.absolute {
+  position: absolute;
+}
 .relative {
   position: relative;
 }
@@ -652,6 +655,9 @@ video {
 }
 .box-border {
   box-sizing: border-box;
+}
+.block {
+  display: block;
 }
 .inline {
   display: inline;
@@ -798,6 +804,7 @@ video {
 
 /** Modify your Tailwind layers etc. here **/
 
+img.svelte-o6s74f{display:block;position:absolute;z-index:-100;top:-99999;left:-99999}
 #cameraFileInput.svelte-a6iv7t{display:none}.pictureFromCamera.svelte-a6iv7t{width:100%;height:auto;margin-top:16px}
 textarea.svelte-ebzv1t{width:100%;height:200px;padding:0.25em}
 section.svelte-1mnvu2k{overflow-wrap:break-word}
