@@ -3,6 +3,7 @@
   import Lang from "../../Default/Lang.svelte";
 
   import textToConverter from "../../../Stores/TextToConverter";
+  import { Base64 } from "js-base64";
 
   let text = ``;
   let textArea: HTMLTextAreaElement;
@@ -13,7 +14,8 @@
     const name = "message.txt";
     const type = "text/plain";
     const size = text.length;
-    const base64 = window.btoa(text);
+    const base64 = Base64.encode(text, true);
+    // const base64 = window.btoa(text);
 
     const obj = { name, type, size, base64 };
     textToConverter.set(JSON.stringify(obj));

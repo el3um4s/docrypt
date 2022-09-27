@@ -51,6 +51,7 @@
     "@types/sjcl": "^1.0.30",
     "blob-polyfill": "^7.0.20220408",
     "file-saver": "^2.0.5",
+    "js-base64": "^3.7.2",
     "jsqr": "^1.4.0",
     "marked": "^4.1.0",
     "qr-scanner": "^1.4.1",

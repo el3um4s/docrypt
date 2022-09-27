@@ -16,3 +16,6 @@
 [micro-aes-gcm](https://github.com/paulmillr/micro-aes-gcm)
 [sjcl](https://github.com/bitwiseshiftleft/sjcl)
 [Stanford Javascript Crypto Library](https://bitwiseshiftleft.github.io/sjcl/)
+
+[js-base64](https://www.npmjs.com/package/js-base64)
+[dankogai/js-base64](https://github.com/dankogai/js-base64)

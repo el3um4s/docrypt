@@ -2,6 +2,9 @@
   import sjcl from "sjcl";
 
   import { marked } from "marked";
+
+  import { Base64 } from "js-base64";
+
   import Lang from "../../Default/Lang.svelte";
 
   import password from "../../../Stores/Password";
@@ -17,7 +20,8 @@
     const decoded = window.atob(text);
     try {
       const decrypted = sjcl.decrypt($password, decoded);
-      const result = window.atob(decrypted);
+      const result = Base64.decode(decrypted);
+      // const result = window.atob(decrypted);
       return result;
     } catch (error) {
       return "Error";
