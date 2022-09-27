@@ -21,7 +21,8 @@
   import status from "./Stores/Status";
 
   import GenerateQrCode from "./Components/UI/QRCode/GenerateQRCode.svelte";
-  import ReadQRCode from "./Components/UI/QRCode/ReadQRCode.svelte";
+  import ReadQRCodeFromPhoto from "./Components/UI/QRCode/ReadQRCodeFromPhoto.svelte";
+  import ReadQRCodeFromImage from "./Components/UI/QRCode/ReadQRCodeFromImage.svelte";
 
   let component = null;
 </script>
@@ -104,8 +105,13 @@
       >
       <button
         on:click={() => {
-          component = ReadQRCode;
-        }}>Read from QR Code</button
+          component = ReadQRCodeFromPhoto;
+        }}>Read from QR Code (photo)</button
+      >
+      <button
+        on:click={() => {
+          component = ReadQRCodeFromImage;
+        }}>Read from QR Code (image)</button
       >
       <!-- <GenerateQrCode />
       <ReadQRCode /> -->

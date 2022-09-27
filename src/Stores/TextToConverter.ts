@@ -7,8 +7,6 @@ const textToConverter = {
   subscribe: textToConverterStore.subscribe,
   set: (text: string) => {
     textToConverterStore.set(text);
-    console.log("textToConverterStore");
-    console.log(text);
   },
 };
 
