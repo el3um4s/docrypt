@@ -51,7 +51,9 @@
     "@types/sjcl": "^1.0.30",
     "blob-polyfill": "^7.0.20220408",
     "file-saver": "^2.0.5",
+    "jsqr": "^1.4.0",
     "marked": "^4.1.0",
+    "qr-scanner": "^1.4.1",
     "qrcode": "^1.5.1",
     "sirv-cli": "^2.0.2",
     "sjcl": "^1.0.8"

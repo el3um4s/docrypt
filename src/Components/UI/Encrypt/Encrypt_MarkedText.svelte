@@ -9,7 +9,7 @@
 
   let showPlain = true;
 
-  $: if (text != "") {
+  $: {
     const name = "message.txt";
     const type = "text/plain";
     const size = text.length;

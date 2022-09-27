@@ -10,7 +10,7 @@
   // https://www.npmjs.com/package/@noble/hashes
   // import { randomBytes } from "@noble/hashes/utils";
 
-  let p = $password;
+  $: p = $password;
   $: password.set(p);
   let canvas: HTMLCanvasElement;
 
@@ -27,7 +27,7 @@
       //   p = pwd.secureMask.apply(randomBytes(32)).password;
       // p = newPassword(32);
       p = newPassword(100);
-      console.log(p);
+      // console.log(p);
     }}>Generate Password</button
   >
   <canvas bind:this={canvas} />
