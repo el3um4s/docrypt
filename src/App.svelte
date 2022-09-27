@@ -1,5 +1,6 @@
 <script lang="ts">
   import "./css/tailwind.pcss";
+  import Logo from "./Components/UI/Images/Logo.svelte";
   import Lang from "./Components/Default/Lang.svelte";
   import ChooseLanguage from "./Components/UI/ChooseLanguage.svelte";
 
@@ -32,8 +33,7 @@
 </svelte:head>
 
 <main>
-  <h1>DoCrypt</h1>
-
+  <Logo height="48px" fill="red" stroke="white" />
   {#if $status != "start"}
     <button
       on:click={() => {
