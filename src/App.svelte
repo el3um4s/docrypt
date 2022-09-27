@@ -21,6 +21,7 @@
   import status from "./Stores/Status";
 
   import GenerateQrCode from "./Components/UI/QRCode/GenerateQRCode.svelte";
+  import ReadQRCode from "./Components/UI/QRCode/ReadQRCode.svelte";
 
   let component = null;
 </script>
@@ -96,7 +97,18 @@
 
   {#if $status == "password"}
     <div>
-      <GenerateQrCode />
+      <button
+        on:click={() => {
+          component = GenerateQrCode;
+        }}>Generate Random Password</button
+      >
+      <button
+        on:click={() => {
+          component = ReadQRCode;
+        }}>Read from QR Code</button
+      >
+      <!-- <GenerateQrCode />
+      <ReadQRCode /> -->
     </div>
   {/if}
 
@@ -104,7 +116,8 @@
     <svelte:component this={component} />
   {/if}
 
-  {#if $status == "encrypt" && component && $textToConverter != ""}
+  <!-- {#if $status == "encrypt" && component && $textToConverter != ""} -->
+  {#if $status == "encrypt" && component}
     <Password />
 
     {#if component != Encrypt_MarkedText}

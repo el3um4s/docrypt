@@ -19,8 +19,10 @@
   // $: console.log(JSON.parse(ciphertextPlain));
 
   $: parseCipher = () => {
+    console.log(ciphertextPlain);
     // @ts-ignore: TS2345: Argument of type 'SjclCipherEncrypted' is not assignable to parameter of type 'string'.
     const parsedMessage = JSON.stringify(JSON.parse(ciphertextPlain));
+    console.log(parsedMessage);
     return window.btoa(parsedMessage);
   };
 
