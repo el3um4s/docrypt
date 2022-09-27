@@ -13,6 +13,7 @@
   $: p = $password;
   $: password.set(p);
   let canvas: HTMLCanvasElement;
+  let pics;
 
   $: if (canvas && $password != "") {
     QRCode.toCanvas(canvas, p);
@@ -31,4 +32,22 @@
     }}>Generate Password</button
   >
   <canvas bind:this={canvas} />
+  {#if p != ""}
+    <button
+      on:click={() => {
+        const dataURL = canvas.toDataURL("image/png");
+        const imageObject = new Image();
+        imageObject.src = dataURL;
+
+        pics.src = imageObject.src;
+
+        let link = document.createElement("a");
+        link.setAttribute("download", "download");
+        link.href = pics.src;
+        link.click();
+      }}>Save QRCode to Image</button
+    >
+
+    <div bind:this={pics} />
+  {/if}
 </div>

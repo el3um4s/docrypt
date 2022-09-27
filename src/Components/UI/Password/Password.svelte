@@ -13,7 +13,7 @@
   <button
     on:click={() => {
       fromQRCode = !fromQRCode;
-    }}>From QrCose</button
+    }}>From QrCode</button
   >
   {#if fromQRCode}
     <ReadQRCode />
