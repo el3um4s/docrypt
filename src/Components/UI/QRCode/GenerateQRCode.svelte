@@ -6,7 +6,7 @@
   import newPassword from "../../../Functions/GenerateRandomPassword";
 
   // https://github.com/paulmillr/micro-password-generator
-  // import * as pwd from "micro-password-generator";
+  //  import * as pwd from "micro-password-generator";
   // https://www.npmjs.com/package/@noble/hashes
   // import { randomBytes } from "@noble/hashes/utils";
 
@@ -27,7 +27,7 @@
       // p = new TextDecoder().decode(randomBytes(16));
       //   p = pwd.secureMask.apply(randomBytes(32)).password;
       // p = newPassword(32);
-      p = newPassword(100);
+      p = newPassword();
       // console.log(p);
     }}>Generate Password</button
   >

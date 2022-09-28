@@ -6,7 +6,7 @@ import {
 	terser
 } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import css from 'rollup-plugin-css-only';
 import postcss from 'rollup-plugin-postcss';
 import versionInjector from 'rollup-plugin-version-injector';
