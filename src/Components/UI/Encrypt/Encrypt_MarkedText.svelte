@@ -15,7 +15,6 @@
     const type = "text/plain";
     const size = text.length;
     const base64 = Base64.encode(text, true);
-    // const base64 = window.btoa(text);
 
     const obj = { name, type, size, base64 };
     textToConverter.set(JSON.stringify(obj));

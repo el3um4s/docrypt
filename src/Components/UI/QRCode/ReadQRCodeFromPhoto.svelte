@@ -14,18 +14,11 @@
   $: password.set(p);
 
   onMount(async () => {
-    // QrScanner.WORKER_PATH = "/qr-scanner-worker.min.js";
-    // const scanner = new QrScanner(videoElem, (result) => {
-    //   console.log(result);
-    // });
-    // scanner.start();
-
     hasCamera = await QrScanner.hasCamera();
     if (hasCamera) {
       cameraScanner = new QrScanner(
         videoElem,
         (result) => {
-          // console.log("decoded qr code:", result);
           p = result.data;
           cameraScanner.stop();
         },
@@ -37,7 +30,6 @@
       );
 
       listCameras = await QrScanner.listCameras(true);
-      // console.log(listCameras);
       cameraSelected = listCameras[0].id;
       cameraScanner.start();
     }
@@ -77,9 +69,9 @@
       {/each}
     </select>
   {/if}
+  <!-- svelte-ignore a11y-media-has-caption -->
   <video bind:this={videoElem} style:display={hasCamera ? "inline" : "none"} />
   {#if !hasCamera}
     <p>Camera not found</p>
   {/if}
 </div>
-<!-- <video bind:this={videoElem} /> -->

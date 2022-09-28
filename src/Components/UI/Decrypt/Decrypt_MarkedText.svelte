@@ -21,7 +21,6 @@
     try {
       const decrypted = sjcl.decrypt($password, decoded);
       const result = Base64.decode(decrypted);
-      // const result = window.atob(decrypted);
       return result;
     } catch (error) {
       return "Error";

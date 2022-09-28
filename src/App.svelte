@@ -1,6 +1,8 @@
 <script lang="ts">
   import "./css/tailwind.pcss";
-  import Logo from "./Components/UI/Images/Logo.svelte";
+
+  import Header from "./Components/UI/General/Header.svelte";
+
   import Lang from "./Components/Default/Lang.svelte";
   import ChooseLanguage from "./Components/UI/ChooseLanguage.svelte";
 
@@ -26,14 +28,33 @@
   import ReadQRCodeFromImage from "./Components/UI/QRCode/ReadQRCodeFromImage.svelte";
 
   let component = null;
+
+  import page from "./Stores/Page";
+  import Home from "./Components/Pages/Home/Home.svelte";
+  import match from "@el3um4s/match";
+
+  let pageSelected;
+
+  $: pageSelected = match($page)
+    .on("Home", () => {
+      console.log("Home page selected");
+      return Home;
+    })
+    .otherwise(() => {
+      console.log("page not found");
+      return null;
+    });
 </script>
 
 <svelte:head>
   <title>DoCrypt</title>
 </svelte:head>
 
+<Header />
 <main>
-  <Logo height="48px" fill="red" stroke="white" />
+  <svelte:component this={pageSelected} />
+
+  <!-- <Home /> -->
   {#if $status != "start"}
     <button
       on:click={() => {
@@ -76,9 +97,6 @@
           textToConverter.set("");
         }}><Lang c="menu" v="message" /></button
       >
-      <!-- <button on:click={() => (component = File)}
-        ><Lang c="menu" v="files" /></button
-      > -->
     </div>
   {/if}
 
@@ -90,9 +108,6 @@
           textToConverter.set("");
         }}><Lang c="menu" v="message" /></button
       >
-      <!-- <button on:click={() => (component = File)}
-        ><Lang c="menu" v="files" /></button
-      > -->
     </div>
   {/if}
 
@@ -113,8 +128,6 @@
           component = ReadQRCodeFromImage;
         }}>Read from QR Code (image)</button
       >
-      <!-- <GenerateQrCode />
-      <ReadQRCode /> -->
     </div>
   {/if}
 
@@ -122,7 +135,6 @@
     <svelte:component this={component} />
   {/if}
 
-  <!-- {#if $status == "encrypt" && component && $textToConverter != ""} -->
   {#if $status == "encrypt" && component}
     <Password />
 
@@ -136,24 +148,6 @@
       <ShareBase64Text />
     {/if}
   {/if}
-  <!-- <div>
-    <button>Original</button>
-    <button>Transformed</button>
-  </div> -->
-
-  <div>
-    <!--
-    
-    <button on:click={() => (component = File)}
-      ><Lang c="menu" v="files" /></button
-    >
-    <button on:click={() => (component = CameraInput)}
-      ><Lang c="menu" v="photoNative" /></button
-    >
-    <button on:click={() => (component = CameraMedia)}
-      ><Lang c="menu" v="photoWebCam" /></button
-    > -->
-  </div>
 
   <ChooseLanguage />
   <VersionNumber />

@@ -15,10 +15,6 @@
     video: true,
   };
 
-  // Attach the video stream to the video element and autoplay.
-  //   navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-  //     player.srcObject = stream;
-  //   });
   const getBase64StringFromDataURL = (dataURL) =>
     dataURL.replace("data:", "").replace(/^.+,/, "");
 </script>
