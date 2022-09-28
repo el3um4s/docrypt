@@ -5,7 +5,7 @@
 
   import { Base64 } from "js-base64";
 
-  import Lang from "../../Default/Lang.svelte";
+  import Lang from "../../Lang.svelte";
 
   import password from "../../../Stores/Password";
 

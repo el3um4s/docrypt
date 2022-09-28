@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Lang from "../Default/Lang.svelte";
+  import Lang from "../Lang.svelte";
   import textToConverter from "../../Stores/TextToConverter";
 
   let files;

@@ -1,10 +1,8 @@
 <script lang="ts">
   import "./css/tailwind.pcss";
-
   import Header from "./Components/UI/General/Header.svelte";
 
-  import Lang from "./Components/Default/Lang.svelte";
-  import ChooseLanguage from "./Components/UI/ChooseLanguage.svelte";
+  import Lang from "./Components/Lang.svelte";
 
   import Password from "./Components/UI/Password/Password.svelte";
 
@@ -32,12 +30,16 @@
   import page from "./Stores/Page";
   import Home from "./Components/Pages/Home/Home.svelte";
   import About from "./Components/Pages/About/About.svelte";
+  import Settings from "./Components/Pages/Settings/Settings.svelte";
 
   let pageSelected;
 
   $: pageSelected = match($page)
     .on("Home", () => {
       return Home;
+    })
+    .on("Settings", () => {
+      return Settings;
     })
     .on("About", () => {
       return About;
@@ -150,8 +152,6 @@
       <ShareBase64Text />
     {/if}
   {/if}
-
-  <ChooseLanguage />
 </main>
 
 <style lang="postcss">

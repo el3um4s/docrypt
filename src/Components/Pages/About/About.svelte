@@ -82,5 +82,22 @@
 </section>
 
 <style lang="postcss">
-  /*  */
+  a,
+  a:visited {
+    color: var(--color-purple);
+  }
+
+  a:hover {
+    background-color: var(--color-purple);
+    color: var(--color-menu);
+  }
+  ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  li::marker {
+    color: var(--color-purple);
+    /* content: "►"; */
+  }
 </style>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { marked } from "marked";
-  import Lang from "../../Default/Lang.svelte";
+  import Lang from "../../Lang.svelte";
 
   import textToConverter from "../../../Stores/TextToConverter";
   import { Base64 } from "js-base64";
