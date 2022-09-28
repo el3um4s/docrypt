@@ -13,7 +13,6 @@
   import CameraMedia from "./Components/UI/CameraMedia.svelte";
   import SaveBase64File from "./Components/UI/SaveBase64File.svelte";
   import ShareBase64File from "./Components/UI/ShareBase64File.svelte";
-  import VersionNumber from "./Components/UI/VersionNumber.svelte";
 
   import Encrypt_MarkedText from "./Components/UI/Encrypt/Encrypt_MarkedText.svelte";
   import ShareBase64Text from "./Components/UI/Encrypt/Encrypt_ShareBase64Text.svelte";
@@ -29,16 +28,19 @@
 
   let component = null;
 
+  import match from "@el3um4s/match";
   import page from "./Stores/Page";
   import Home from "./Components/Pages/Home/Home.svelte";
-  import match from "@el3um4s/match";
+  import About from "./Components/Pages/About/About.svelte";
 
   let pageSelected;
 
   $: pageSelected = match($page)
     .on("Home", () => {
-      console.log("Home page selected");
       return Home;
+    })
+    .on("About", () => {
+      return About;
     })
     .otherwise(() => {
       console.log("page not found");
@@ -150,7 +152,6 @@
   {/if}
 
   <ChooseLanguage />
-  <VersionNumber />
 </main>
 
 <style lang="postcss">

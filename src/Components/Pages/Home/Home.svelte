@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { slide } from "svelte/transition";
+
   import Choose from "./Choose.svelte";
   import LogoEncrypt from "../../UI/SVG/LogoEncrypt.svelte";
   import LogoDecrypt from "../../UI/SVG/LogoDecrypt.svelte";
@@ -7,7 +9,7 @@
   import LogoAbout from "../../UI/SVG/LogoAbout.svelte";
 </script>
 
-<section>
+<section transition:slide>
   <div class="item yellow">
     <Choose
       logo={LogoEncrypt}
