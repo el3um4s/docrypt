@@ -3,11 +3,15 @@ import type { Writable } from "svelte/store";
 
 export type Page =
   | "Home"
-  | "Encrypt"
-  | "Decrypt"
+  | "EncryptText"
+  | "DecryptText"
   | "ManagePassword"
   | "Settings"
-  | "About";
+  | "About"
+  | "EncryptFile"
+  | "DecryptFile"
+  | "EncryptPhotoStream"
+  | "EncryptPhothoApp";
 
 const pageStore: Writable<Page> = writable("Home");
 

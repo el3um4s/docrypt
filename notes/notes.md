@@ -23,3 +23,4 @@
 [50 Gorgeous Color Schemes From Award-Winning Websites](https://visme.co/blog/website-color-schemes/)
 
 https://www.flaticon.com/packs/cryptography-3?word=cryptography&style_id=1054&family_id=263&group_id=313
+https://www.flaticon.com/packs/interface-60

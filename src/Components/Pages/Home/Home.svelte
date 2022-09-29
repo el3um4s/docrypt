@@ -2,28 +2,28 @@
   import { slide } from "svelte/transition";
 
   import Choose from "./Choose.svelte";
-  import LogoEncrypt from "../../UI/SVG/LogoEncrypt.svelte";
-  import LogoDecrypt from "../../UI/SVG/LogoDecrypt.svelte";
-  import LogoSettings from "../../UI/SVG/LogoSettings.svelte";
-  import LogoPassword from "../../UI/SVG/LogoPassword.svelte";
-  import LogoAbout from "../../UI/SVG/LogoAbout.svelte";
+  import LogoEncryptText from "../../UI/SVG/LOGO/LogoEncryptText.svelte";
+  import LogoDecryptText from "../../UI/SVG/LOGO/LogoDecryptText.svelte";
+  import LogoSettings from "../../UI/SVG/LOGO/LogoSettings.svelte";
+  import LogoPassword from "../../UI/SVG/LOGO/LogoPassword.svelte";
+  import LogoAbout from "../../UI/SVG/LOGO/LogoAbout.svelte";
 </script>
 
 <section transition:slide>
   <div class="item yellow">
     <Choose
-      logo={LogoEncrypt}
+      logo={LogoEncryptText}
       title="Encrypt"
       subtitle="Encrypt your text"
-      page="Encrypt"
+      page="EncryptText"
     />
   </div>
   <div class="item green">
     <Choose
-      logo={LogoDecrypt}
+      logo={LogoDecryptText}
       title="Decrypt"
       subtitle="Decrypt your text"
-      page="Decrypt"
+      page="DecryptText"
     />
   </div>
   <div class="item orange">

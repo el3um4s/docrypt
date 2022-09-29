@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { slide } from "svelte/transition";
+
   import password from "../../../Stores/Password";
   import ReadQRCodeFromPhoto from "../QRCode/ReadQRCodeFromPhoto.svelte";
   import ReadQRCodeFromImage from "../QRCode/ReadQRCodeFromImage.svelte";
@@ -10,7 +12,7 @@
   let component;
 </script>
 
-<div>
+<section transition:slide>
   <input bind:value={p} placeholder="password" />
   <button
     on:click={() => {
@@ -27,4 +29,4 @@
   {#if fromQRCode}
     <svelte:component this={component} />
   {/if}
-</div>
+</section>

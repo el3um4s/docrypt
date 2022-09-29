@@ -4,7 +4,7 @@
 
   import Lang from "./Components/Lang.svelte";
 
-  import Password from "./Components/UI/Password/Password.svelte";
+  import Password from "./Components/UI/Password/InsertPassword.svelte";
 
   import File from "./Components/UI/File.svelte";
   import CameraInput from "./Components/UI/CameraInput.svelte";
@@ -31,12 +31,16 @@
   import Home from "./Components/Pages/Home/Home.svelte";
   import About from "./Components/Pages/About/About.svelte";
   import Settings from "./Components/Pages/Settings/Settings.svelte";
+  import EncryptText from "./Components/Pages/EncryptText/EncryptText.svelte";
 
   let pageSelected;
 
   $: pageSelected = match($page)
     .on("Home", () => {
       return Home;
+    })
+    .on("EncryptText", () => {
+      return EncryptText;
     })
     .on("Settings", () => {
       return Settings;

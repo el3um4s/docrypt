@@ -2,9 +2,9 @@
   import p from "../../../Stores/Page";
   import type { Page } from "../../../Stores/Page";
 
-  import LogoIcon from "../../UI/SVG/Logo.svelte";
+  import LogoGeneric from "../../UI/SVG/LOGO/LogoGeneric.svelte";
 
-  export let logo = LogoIcon;
+  export let logo = LogoGeneric;
   export let title = "title";
   export let subtitle = "subtitle";
 
