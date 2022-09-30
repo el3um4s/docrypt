@@ -9,47 +9,13 @@
   --color-menu-hover: #ff652f;
 
   --color-yellow: #b9a70f;
-  /* #ffe400; */
   --color-green: #14a76c;
   --color-orange: #ff652f;
   --color-gray: #747474;
-
   --color-blue: #0875b5;
   --color-purple: #b949fb;
-
-  /* --background-color: theme("colors.neutral.50"); */
-  /* --color: theme("colors.neutral.900"); */
-  /* --titlebar-background-color: theme("colors.neutral.50");
-  --titlebar-text-color: theme("colors.neutral.900");
-  --window-border-color: theme("colors.neutral.900");
-  --hover-scrollbar-thumb: theme("colors.neutral.400"); */
-
-  /* --hover-background-color: theme("colors.orange.200");
-  --hover-color: theme("colors.orange.900");
-  --color-error: theme("colors.red.400"); */
-
-  /* sidebar and cards */
-  /* --sidebar-background-color: theme("colors.neutral.50");
-  --sidebar-text-color: theme("colors.neutral.400");
-  --sidebar-hover-background-color: theme("colors.neutral.50");
-  --sidebar-hover-text-color: theme("colors.neutral.900");
-  --sidebar-border-color: #d1d1d1;
-
-  --status-bar-background-color: theme("colors.neutral.50");
-  --status-bar-text-color: theme("colors.neutral.900"); */
-
-  /* buttons color*/
-  /* --color-confirm: theme("colors.emerald.200");
-  --color-confirm-hover: theme("colors.emerald.300");
-  --color-cancel: theme("colors.red.200");
-  --color-cancel-hover: theme("colors.red.300");
-  --color-action: theme("colors.blue.200");
-  --color-action-hover: theme("colors.blue.300");
-  --color-neutral: theme("colors.orange.200");
-  --color-neutral-hover: theme("colors.orange.300"); */
 }
 
-/** Modify your Tailwind layers etc. here **/
 @layer base {
   * {
     @apply m-0 p-0 border-0 align-baseline;
@@ -273,60 +239,14 @@
       }
     }
   }
+
+  .button-icon > svg {
+    fill: var(--color-menu-hover);
+    stroke: var(--color-menu-hover);
+  }
+
+  .button-icon:hover > svg {
+    fill: var(--color-menu);
+    stroke: transparent;
+  }
 }
-
-/* @layer components {
-  .button-confirm {
-    @apply py-2 px-4 font-semibold p-2 rounded border border-[color:var(--color-confirm)] bg-[color:var(--color-confirm)];
-
-    &:hover {
-      @apply no-underline bg-[color:var(--color-confirm-hover)];
-    }
-  }
-
-  .button-cancel {
-    @apply py-2 px-4 font-semibold p-2 rounded border border-[color:var(--color-cancel)] bg-[color:var(--color-cancel)];
-
-    &:hover {
-      @apply no-underline bg-[color:var(--color-cancel-hover)];
-    }
-  }
-
-  .button-action {
-    @apply py-2 px-4 font-semibold p-2 rounded border border-[color:var(--color-action)] bg-[color:var(--color-action)];
-
-    &:hover {
-      @apply no-underline bg-[color:var(--color-action-hover)] cursor-pointer;
-    }
-  }
-
-  .tab-component {
-    .tab-list {
-      @apply flex items-center;
-
-      button {
-        background: none;
-        border: none;
-        border-bottom: 2px solid var(--sidebar-background-color);
-        border-radius: 0;
-        margin: 0;
-        color: var(--sidebar-text-color);
-      }
-
-      button:hover {
-        color: var(--sidebar-hover-text-color);
-      }
-
-      .selected {
-        border-bottom: 2px solid var(--sidebar-hover-text-color);
-        color: var(--sidebar-hover-text-color);
-      }
-    }
-
-    .tab-panel {
-      @apply m-0 p-0 overflow-hidden border;
-      border-radius: 0 0 0.25rem 0.25rem;
-      border: 1px solid var(--sidebar-text-color);
-    }
-  }
-} */

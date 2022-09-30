@@ -5,6 +5,11 @@
 
   import password from "../../../Stores/Password";
 
+  import Button from "../../UI/CustomButton/Button.svelte";
+  import IconNext from "../../UI/SVG/ICO/IconNext.svelte";
+  import IconBack from "../../UI/SVG/ICO/IconBack.svelte";
+  import IconNewMessage from "../../UI/SVG/ICO/IconNewMessage.svelte";
+
   import MarkedText from "../../UI/MarkedText/MarkedText.svelte";
   import InsertPassword from "../../UI/Password/InsertPassword.svelte";
   import EncryptedText from "./EncryptedText.svelte";
@@ -48,26 +53,68 @@
       <h1>Input</h1>
       <h3>Write here the text to be encrypted</h3>
       <MarkedText bind:text />
-      <button on:click={() => (status = "Password")}>Next</button>
+
+      <div class="button-bar">
+        <Button
+          label="Next"
+          subtitle="Insert password"
+          Icon={IconNext}
+          on:click={() => (status = "Password")}
+        />
+      </div>
     </div>
   {:else if status === "Password"}
     <div transition:slide>
       <h1>Password</h1>
       <InsertPassword />
-      <button on:click={() => (status = "Input")}>Back</button>
-      <button on:click={() => (status = "Show")}>Next</button>
+
+      <div class="button-bar">
+        <Button
+          label="Back"
+          subtitle="Insert Text"
+          Icon={IconBack}
+          on:click={() => (status = "Input")}
+        />
+        <Button
+          label="Next"
+          subtitle="Show Encrypted text"
+          Icon={IconNext}
+          on:click={() => (status = "Show")}
+        />
+      </div>
     </div>
   {:else if status === "Show"}
     <div transition:slide>
       <h1>Show</h1>
       <EncryptedText {cipherText} />
-      <button on:click={() => (status = "Password")}>Back</button>
-      <button
-        on:click={() => {
-          status = "Input";
-          text = "";
-        }}>New Message</button
-      >
+
+      <div class="button-bar">
+        <Button
+          label="Password"
+          subtitle="Insert password"
+          Icon={IconBack}
+          on:click={() => (status = "Password")}
+        />
+        <Button
+          label="New Message"
+          subtitle="Encrypt a new message"
+          Icon={IconNewMessage}
+          on:click={() => {
+            status = "Input";
+            text = "";
+          }}
+        />
+      </div>
     </div>
   {/if}
 </section>
+
+<style lang="postcss">
+  .button-bar {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-top: 1rem;
+    flex: 1 1 auto;
+  }
+</style>

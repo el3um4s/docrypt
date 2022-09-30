@@ -1,7 +1,4 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
-  const dispatch = createEventDispatcher();
-
   import LogoGeneric from "../SVG/LOGO/LogoGeneric.svelte";
 
   export let logo = LogoGeneric;
@@ -9,11 +6,7 @@
   export let subtitle = "subtitle";
 </script>
 
-<section
-  on:click={() => {
-    dispatch("click");
-  }}
->
+<section on:click>
   <svelte:component this={logo} height="64px" />
   <h1>{title}</h1>
   <h3>{subtitle}</h3>
