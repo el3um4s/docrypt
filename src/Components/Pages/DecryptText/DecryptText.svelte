@@ -84,3 +84,11 @@
     </div>
   {/if}
 </section>
+
+<style lang="postcss">
+  textarea {
+    width: 100%;
+    min-height: 360px;
+    padding: 0.25em;
+  }
+</style>

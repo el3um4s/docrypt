@@ -13,7 +13,7 @@
   export let showHTML = false;
 </script>
 
-<section>
+<section transition:slide>
   <div class="button-bar">
     <button
       class:showPlainText
@@ -38,6 +38,7 @@
     {#if showPlainText}
       <div class="item textarea" transition:slide>
         <textarea
+          transition:slide
           bind:this={textArea}
           bind:value={text}
           on:keydown={(e) => {

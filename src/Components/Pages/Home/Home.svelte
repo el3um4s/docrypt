@@ -1,7 +1,9 @@
 <script lang="ts">
   import { slide } from "svelte/transition";
 
-  import Choose from "./Choose.svelte";
+  import page from "../../../Stores/Page";
+
+  import Choose from "../../UI/CustomButton/Choose.svelte";
   import LogoEncryptText from "../../UI/SVG/LOGO/LogoEncryptText.svelte";
   import LogoDecryptText from "../../UI/SVG/LOGO/LogoDecryptText.svelte";
   import LogoSettings from "../../UI/SVG/LOGO/LogoSettings.svelte";
@@ -15,7 +17,9 @@
       logo={LogoEncryptText}
       title="Encrypt"
       subtitle="Encrypt your text"
-      page="EncryptText"
+      on:click={() => {
+        page.set("EncryptText");
+      }}
     />
   </div>
   <div class="item green">
@@ -23,7 +27,9 @@
       logo={LogoDecryptText}
       title="Decrypt"
       subtitle="Decrypt your text"
-      page="DecryptText"
+      on:click={() => {
+        page.set("DecryptText");
+      }}
     />
   </div>
   <div class="item orange">
@@ -31,7 +37,9 @@
       logo={LogoPassword}
       title="Password"
       subtitle="Manage your password"
-      page="ManagePassword"
+      on:click={() => {
+        page.set("ManagePassword");
+      }}
     />
   </div>
   <div class="item blue">
@@ -39,7 +47,9 @@
       logo={LogoSettings}
       title="Settings"
       subtitle="Language and other settings"
-      page="Settings"
+      on:click={() => {
+        page.set("Settings");
+      }}
     />
   </div>
   <div class="item purple">
@@ -47,7 +57,9 @@
       logo={LogoAbout}
       title="About"
       subtitle="About this app"
-      page="About"
+      on:click={() => {
+        page.set("About");
+      }}
     />
   </div>
 </section>

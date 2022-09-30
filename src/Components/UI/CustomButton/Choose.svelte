@@ -1,20 +1,17 @@
 <script lang="ts">
-  import p from "../../../Stores/Page";
-  import type { Page } from "../../../Stores/Page";
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
 
-  import LogoGeneric from "../../UI/SVG/LOGO/LogoGeneric.svelte";
+  import LogoGeneric from "../SVG/LOGO/LogoGeneric.svelte";
 
   export let logo = LogoGeneric;
   export let title = "title";
   export let subtitle = "subtitle";
-
-  export let page: Page = "Home";
 </script>
 
 <section
   on:click={() => {
-    // console.log(page);
-    p.set(page);
+    dispatch("click");
   }}
 >
   <svelte:component this={logo} height="64px" />

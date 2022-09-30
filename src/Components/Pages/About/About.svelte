@@ -72,6 +72,9 @@
     <li>
       <a href="https://www.npmjs.com/package/@el3um4s/match">match</a>
     </li>
+    <li>
+      <a href="https://www.npmjs.com/package/@el3um4s/to-try">to-try</a>
+    </li>
   </ul>
 
   <p>
