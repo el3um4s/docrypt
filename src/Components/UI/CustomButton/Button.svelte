@@ -1,14 +1,14 @@
 <script lang="ts">
   export let label: string = "";
   export let subtitle: string = "";
-  export let Icon = null;
+  export let LeftIcon = null;
+  export let RightIcon = null;
 </script>
 
 <section on:click>
-  {#if Icon}
+  {#if LeftIcon}
     <div class="button-icon">
-      <!-- svelte-ignore reactive-component -->
-      <Icon height="32px" />
+      <svelte:component this={LeftIcon} height="32px" />
     </div>
   {/if}
   {#if label !== ""}
@@ -17,6 +17,11 @@
       {#if subtitle !== ""}
         <div class="subtitle">{subtitle}</div>
       {/if}
+    </div>
+  {/if}
+  {#if RightIcon}
+    <div class="button-icon">
+      <svelte:component this={RightIcon} height="32px" />
     </div>
   {/if}
 </section>

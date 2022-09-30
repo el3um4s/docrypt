@@ -49,6 +49,6 @@
 
 <style lang="postcss">
   main {
-    @apply w-full max-w-4xl mx-auto p-4;
+    @apply w-full max-w-4xl mx-auto p-8;
   }
 </style>

@@ -50,71 +50,108 @@
 <section transition:slide>
   {#if status === "Input"}
     <div transition:slide>
-      <h1>Input</h1>
-      <h3>Write here the text to be encrypted</h3>
+      <div class="title-section">
+        <h1>Input</h1>
+        <h3>Write here the text to be encrypted</h3>
+      </div>
       <MarkedText bind:text />
 
       <div class="button-bar">
-        <Button
-          label="Next"
-          subtitle="Insert password"
-          Icon={IconNext}
-          on:click={() => (status = "Password")}
-        />
+        <div class="item">
+          <Button
+            label="Next"
+            subtitle="Insert password"
+            RightIcon={IconNext}
+            on:click={() => (status = "Password")}
+          />
+        </div>
       </div>
     </div>
   {:else if status === "Password"}
     <div transition:slide>
-      <h1>Password</h1>
+      <div class="title-section">
+        <h1>Password</h1>
+        <h3>Insert the password to encrypt the text</h3>
+      </div>
+
       <InsertPassword />
 
       <div class="button-bar">
-        <Button
-          label="Back"
-          subtitle="Insert Text"
-          Icon={IconBack}
-          on:click={() => (status = "Input")}
-        />
-        <Button
-          label="Next"
-          subtitle="Show Encrypted text"
-          Icon={IconNext}
-          on:click={() => (status = "Show")}
-        />
+        <div class="item">
+          <Button
+            label="Back"
+            subtitle="Insert Text"
+            LeftIcon={IconBack}
+            on:click={() => (status = "Input")}
+          />
+        </div>
+        <div class="item">
+          <Button
+            label="Next"
+            subtitle="Show Encrypted text"
+            RightIcon={IconNext}
+            on:click={() => (status = "Show")}
+          />
+        </div>
       </div>
     </div>
   {:else if status === "Show"}
     <div transition:slide>
-      <h1>Show</h1>
+      <div class="title-section">
+        <h1>Encrypted Text</h1>
+        <h3>Here is the encrypted text</h3>
+      </div>
       <EncryptedText {cipherText} />
 
       <div class="button-bar">
-        <Button
-          label="Password"
-          subtitle="Insert password"
-          Icon={IconBack}
-          on:click={() => (status = "Password")}
-        />
-        <Button
-          label="New Message"
-          subtitle="Encrypt a new message"
-          Icon={IconNewMessage}
-          on:click={() => {
-            status = "Input";
-            text = "";
-          }}
-        />
+        <div class="item">
+          <Button
+            label="Password"
+            subtitle="Insert password"
+            LeftIcon={IconBack}
+            on:click={() => (status = "Password")}
+          />
+        </div>
+        <div class="item">
+          <Button
+            label="New Message"
+            subtitle="Encrypt a new message"
+            RightIcon={IconNewMessage}
+            on:click={() => {
+              status = "Input";
+              text = "";
+            }}
+          />
+        </div>
       </div>
     </div>
   {/if}
 </section>
 
 <style lang="postcss">
+  .title-section {
+    border: 4px solid var(--color-menu);
+    padding: 10px;
+    border-radius: 2px;
+    margin: 0px;
+    transition: all 0.5s ease-in-out;
+  }
   .button-bar {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
-    margin-top: 1rem;
-    flex: 1 1 auto;
+    flex-wrap: wrap;
+  }
+
+  .button-bar .item {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px;
+    text-align: center;
+    border: 4px solid var(--color-menu);
+    border-radius: 2px;
+    margin: 0px;
+    cursor: pointer;
+
+    transition: all 0.5s ease-in-out;
   }
 </style>

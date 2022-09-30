@@ -85,7 +85,6 @@
     border-radius: 2px;
     margin: 0px;
     cursor: pointer;
-
     transition: all 0.5s ease-in-out;
   }
 
@@ -111,6 +110,7 @@
     background-color: var(--color-menu);
     border: 4px solid var(--color-menu);
     border-radius: 2px;
+    padding: 10px;
     gap: 0.25em;
   }
 

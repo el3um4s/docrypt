@@ -5,7 +5,8 @@
 :root {
   --color: #747474;
   --color-background: #272727;
-  --color-menu: #232323;
+  /* --color-menu: #232323; */
+  --color-menu: #222222;
   --color-menu-hover: #ff652f;
 
   --color-yellow: #b9a70f;
@@ -23,7 +24,7 @@
 
   html,
   body {
-    @apply font-sans antialiased flex flex-col relative m-0 box-border;
+    @apply font-sans antialiased flex flex-col relative m-0 box-border p-0;
     @apply bg-[color:var(--color-background)] text-[color:var(--color)];
     scrollbar-width: thin;
     scrollbar-color: var(--color) var(--color-menu);
