@@ -33,7 +33,7 @@
     const ciphertextPlain = sjcl.encrypt($password, b64);
     // @ts-ignore: TS2345: Argument of type 'SjclCipherEncrypted' is not assignable to parameter of type 'string'.
     const { iv, salt, ct } = JSON.parse(ciphertextPlain);
-    console.log(iv, salt);
+
     const parsedMessage = JSON.stringify({ iv, salt, ct });
     const result = Base64.encode(parsedMessage, true);
     return result;
@@ -44,7 +44,7 @@
 
 <section transition:slide>
   {#if status === "Input"}
-    <div>
+    <div transition:slide>
       <h1>Input</h1>
       <h3>Write here the text to be encrypted</h3>
       <MarkedText bind:text />
@@ -54,12 +54,14 @@
     <div transition:slide>
       <h1>Password</h1>
       <InsertPassword />
+      <button on:click={() => (status = "Input")}>Back</button>
       <button on:click={() => (status = "Show")}>Next</button>
     </div>
   {:else if status === "Show"}
     <div transition:slide>
       <h1>Show</h1>
       <EncryptedText {cipherText} />
+      <button on:click={() => (status = "Password")}>Back</button>
       <button
         on:click={() => {
           status = "Input";

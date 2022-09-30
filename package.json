@@ -32,7 +32,7 @@
     "@types/sjcl": "^1.0.30",
     "autoprefixer": "^10.4.12",
     "gh-pages": "^4.0.0",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.17",
     "postcss-load-config": "^4.0.1",
     "rollup": "^2.79.1",
     "rollup-plugin-css-only": "^3.1.0",
@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@el3um4s/match": "^0.0.5",
+    "@el3um4s/to-try": "^1.0.1",
     "blob-polyfill": "^7.0.20220408",
     "file-saver": "^2.0.5",
     "js-base64": "^3.7.2",

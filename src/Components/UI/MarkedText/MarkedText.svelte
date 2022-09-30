@@ -9,8 +9,8 @@
   export let text = ``;
   let textArea: HTMLTextAreaElement;
 
-  let showPlainText = true;
-  let showHTML = false;
+  export let showPlainText = true;
+  export let showHTML = false;
 </script>
 
 <section>

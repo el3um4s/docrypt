@@ -32,6 +32,7 @@
   import About from "./Components/Pages/About/About.svelte";
   import Settings from "./Components/Pages/Settings/Settings.svelte";
   import EncryptText from "./Components/Pages/EncryptText/EncryptText.svelte";
+  import DecryptText from "./Components/Pages/DecryptText/DecryptText.svelte";
 
   let pageSelected;
 
@@ -41,6 +42,9 @@
     })
     .on("EncryptText", () => {
       return EncryptText;
+    })
+    .on("DecryptText", () => {
+      return DecryptText;
     })
     .on("Settings", () => {
       return Settings;
