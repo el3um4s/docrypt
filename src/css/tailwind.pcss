@@ -365,4 +365,20 @@
       stroke: var(--color-yellow);
     }
   }
+
+  .button-icon-red .custom-button {
+    &:hover {
+      background-color: var(--color-red);
+      svg {
+        fill: var(--color-menu);
+        stroke: transparent;
+      }
+    }
+
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: var(--color-red);
+      stroke: var(--color-red);
+    }
+  }
 }

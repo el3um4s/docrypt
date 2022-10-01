@@ -12,7 +12,7 @@
   import IconNewMessage from "../../UI/SVG/ICO/IconNewMessage.svelte";
 
   import MarkedText from "../../UI/MarkedText/MarkedText.svelte";
-  import InsertPassword from "../../UI/Password/InsertPassword.svelte";
+  import InsertPassword from "../ManagePassword/InsertPassword.svelte";
 
   let status: "Input" | "Password" | "Show" = "Input";
 
@@ -66,7 +66,10 @@
       <div class="title-section">
         <h1>Password</h1>
       </div>
-      <InsertPassword />
+      <InsertPassword
+        showInputPassword={false}
+        showButtonRandomPassword={false}
+      />
 
       <div class="button-bar">
         <div class="item">

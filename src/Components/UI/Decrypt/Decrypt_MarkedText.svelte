@@ -9,7 +9,7 @@
 
   import password from "../../../Stores/Password";
 
-  import Password from "../Password/InsertPassword.svelte";
+  import Password from "../../Pages/ManagePassword/InsertPassword.svelte";
 
   let textEncoded = "";
   let textDecoded = ``;

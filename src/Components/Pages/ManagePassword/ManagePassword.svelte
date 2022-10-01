@@ -2,13 +2,15 @@
   import { slide } from "svelte/transition";
 
   import Choose from "../../UI/CustomButton/Choose.svelte";
-  import GenerateRandomPassword from "../../UI/QRCode/GenerateRandomPassword.svelte";
-  import ReadQRCodeFromPhoto from "../../UI/QRCode/ReadQRCodeFromPhoto.svelte";
-  import ReadQRCodeFromImage from "../../UI/QRCode/ReadQRCodeFromImage.svelte";
+  import GenerateRandomPassword from "./GenerateRandomPassword.svelte";
+  import ReadQRCodeFromPhoto from "./ReadQRCodeFromPhoto.svelte";
+  import ReadQRCodeFromImage from "./ReadQRCodeFromImage.svelte";
 
   import LogoRandomPassword from "../../UI/SVG/LOGO/LogoRandomPassword.svelte";
   import LogoPasswordFromImage from "../../UI/SVG/LOGO/LogoPasswordFromImage.svelte";
   import LogoPasswordFromPhoto from "../../UI/SVG/LOGO/LogoPasswordFromPhoto.svelte";
+
+  import ButtonBarPassword from "./ButtonBarPassword.svelte";
 
   let component = null;
 </script>
@@ -46,7 +48,24 @@
       />
     </div>
   {:else}
-    <svelte:component this={component} />
+    <div>
+      <div class="item">
+        <ButtonBarPassword
+          on:qr-code-image={() => {
+            component = ReadQRCodeFromImage;
+          }}
+          on:qr-code-photo={() => {
+            component = ReadQRCodeFromPhoto;
+          }}
+          on:random-password={() => {
+            component = GenerateRandomPassword;
+          }}
+        />
+      </div>
+      <div class="item">
+        <svelte:component this={component} />
+      </div>
+    </div>
   {/if}
 </section>
 

@@ -11,7 +11,7 @@
   import IconNewMessage from "../../UI/SVG/ICO/IconNewMessage.svelte";
 
   import MarkedText from "../../UI/MarkedText/MarkedText.svelte";
-  import InsertPassword from "../../UI/Password/InsertPassword.svelte";
+  import InsertPassword from "../ManagePassword/InsertPassword.svelte";
   import EncryptedText from "./EncryptedText.svelte";
 
   let status: "Input" | "Password" | "Show" = "Input";
@@ -74,7 +74,7 @@
         <h3>Insert the password to encrypt the text</h3>
       </div>
 
-      <InsertPassword />
+      <InsertPassword showInputPassword={false} />
 
       <div class="button-bar">
         <div class="item">
