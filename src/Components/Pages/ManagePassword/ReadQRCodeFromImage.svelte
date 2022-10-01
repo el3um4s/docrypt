@@ -5,6 +5,7 @@
   import password from "../../../Stores/Password";
 
   import Button from "../../UI/CustomButton/Button.svelte";
+  import IconAddImage from "../../UI/SVG/ICO/IconAddImage.svelte";
 
   export let showInputPassword: boolean = true;
 
@@ -70,9 +71,16 @@
     </div>
   {/if}
   {#if p == "" && !qrNotFound}
-    <div class="select-image" transition:slide>
-      <label for="qr">Upload a picture:</label>
+    <div class="file-input" transition:slide>
+      <label for="qr" class="button-icon-red"
+        ><Button
+          LeftIcon={IconAddImage}
+          label="Upload a picture"
+          subtitle="Select a picture with a QR Code"
+        /></label
+      >
       <input
+        class="file"
         on:change={onChange}
         accept="image/png, image/jpeg"
         bind:this={input}
@@ -164,12 +172,10 @@
     color: var(--color-green);
   }
 
-  .select-image {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.5s ease-in-out;
+  .file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
   }
 </style>

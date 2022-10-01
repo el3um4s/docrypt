@@ -30,11 +30,11 @@
       (component =
         component == GenerateRandomPassword ? null : GenerateRandomPassword)}
   />
-  <div>
-    {#if component}
+  {#if component}
+    <div transition:slide class="component">
       <svelte:component this={component} {showInputPassword} />
-    {/if}
-  </div>
+    </div>
+  {/if}
 </section>
 
 <style lang="postcss">
@@ -61,5 +61,14 @@
     border-radius: 0.5rem;
     font-size: 1.5rem;
     margin-bottom: 1rem;
+  }
+
+  .component {
+    border: 4px solid var(--color-menu);
+    color: var(--color);
+    padding: 10px;
+    border-radius: 2px;
+    margin: 0px;
+    transition: all 0.5s ease-in-out;
   }
 </style>
