@@ -52,7 +52,7 @@
 
 <section transition:slide>
   {#if p != ""}
-    <div transition:slide class="title-section">
+    <div transition:slide class="title-section successMessage">
       <h3>QR Code found</h3>
 
       {#if showInputPassword}
@@ -163,9 +163,13 @@
     font-size: 1.2em;
     font-weight: bold;
   }
+
+  .successMessage h3 {
+    color: var(--color-green);
+  }
   .showPassword {
-    border: 4px solid var(--color-red);
-    color: var(--color-red);
+    border: 4px solid var(--color-green);
+    color: var(--color-green);
     background-color: #e9e9e9;
     font-weight: bold;
     padding: 10px;
