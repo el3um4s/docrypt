@@ -1,8 +1,13 @@
 <script lang="ts">
+  import { slide } from "svelte/transition";
+  import { onMount, onDestroy } from "svelte";
+
   import QrScanner from "qr-scanner";
   import password from "../../../Stores/Password";
 
-  import { onMount, onDestroy } from "svelte";
+  import Button from "../../UI/CustomButton/Button.svelte";
+
+  export let showInputPassword: boolean = true;
 
   let videoElem: HTMLVideoElement;
   let hasCamera: boolean = false;
@@ -10,6 +15,7 @@
   let cameraSelected: string;
 
   let cameraScanner: QrScanner;
+  password.set("");
   let p = "";
   $: password.set(p);
 
@@ -44,34 +50,129 @@
   });
 </script>
 
-<div>
+<section transition:slide>
   {#if p != ""}
-    <button
-      on:click={() => {
-        p = "";
-        cameraScanner.start();
-      }}>Scan Again</button
-    >
-    <div>Password</div>
-    <div>{p}</div>
+    <div transition:slide class="title-section">
+      <h3>QR Code found</h3>
+
+      {#if showInputPassword}
+        <div class="showPassword">
+          {p}
+        </div>
+      {/if}
+
+      <Button
+        on:click={() => {
+          p = "";
+          cameraScanner.start();
+        }}
+        label="Scan again"
+      />
+    </div>
   {/if}
-  {#if hasCamera}
-    <select
-      bind:value={cameraSelected}
-      on:change={() => {
-        cameraScanner.setCamera(cameraSelected);
-      }}
-    >
-      {#each listCameras as camera}
-        <option value={camera.id}>
-          {camera.label}
-        </option>
-      {/each}
-    </select>
+  {#if hasCamera && p == ""}
+    <div class="select-value" transition:slide>
+      <label for="changeCamera">Select Camera</label>
+      <select
+        id="changeCamera"
+        bind:value={cameraSelected}
+        on:change={() => {
+          cameraScanner.setCamera(cameraSelected);
+        }}
+      >
+        {#each listCameras as camera}
+          <option value={camera.id}>
+            {camera.label}
+          </option>
+        {/each}
+      </select>
+    </div>
   {/if}
-  <!-- svelte-ignore a11y-media-has-caption -->
-  <video bind:this={videoElem} style:display={hasCamera ? "inline" : "none"} />
+  {#if p == ""}
+    <div class="camera">
+      <!-- svelte-ignore a11y-media-has-caption -->
+      <video
+        class="video-qr-scanner"
+        transition:slide
+        bind:this={videoElem}
+        style:display={hasCamera ? "inline" : "none"}
+      />
+    </div>
+  {/if}
   {#if !hasCamera}
-    <p>Camera not found</p>
+    <div transition:slide class="errorCamera">
+      <p>Camera not found</p>
+    </div>
   {/if}
-</div>
+</section>
+
+<style lang="postcss">
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .camera {
+    width: 100%;
+    height: auto;
+    border: 4px solid var(--color-menu);
+    color: var(--color);
+    padding: 10px;
+    border-radius: 2px;
+    margin: 0px;
+  }
+  video {
+    width: 100%;
+    height: auto;
+    border: 4px solid var(--color-red);
+  }
+
+  select:focus {
+    border-color: var(--color-red);
+  }
+
+  .errorCamera {
+    width: 100%;
+    height: auto;
+    border: 4px solid var(--color-menu);
+    color: var(--color);
+    padding: 10px;
+    border-radius: 2px;
+    margin: 0px;
+    color: var(--color-red);
+  }
+
+  .title-section {
+    border: 4px solid var(--color-menu);
+    color: var(--color);
+    padding: 10px;
+    border-radius: 2px;
+    margin: 0px;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: bold;
+  }
+  .title-section h3 {
+    padding: 10px;
+    color: var(--color-red);
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .showPassword {
+    border: 4px solid var(--color-red);
+    color: var(--color-red);
+    background-color: #e9e9e9;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 2px;
+    margin: 0px;
+    transition: all 0.5s ease-in-out;
+    overflow-wrap: break-word;
+    user-select: all;
+  }
+</style>

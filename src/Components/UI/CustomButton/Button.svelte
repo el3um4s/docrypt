@@ -41,6 +41,7 @@
     cursor: pointer;
     height: 64px;
     gap: 0.5em;
+    user-select: none;
   }
 
   .label {

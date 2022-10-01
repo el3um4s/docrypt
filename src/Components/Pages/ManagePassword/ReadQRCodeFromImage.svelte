@@ -1,7 +1,12 @@
 <script lang="ts">
+  import { slide } from "svelte/transition";
+
   import QrScanner from "qr-scanner";
   import password from "../../../Stores/Password";
 
+  export let showInputPassword: boolean = true;
+
+  password.set("");
   let p = "";
   $: password.set(p);
 
@@ -30,7 +35,7 @@
   }
 </script>
 
-<div>
+<section transition:slide>
   <label for="qr">Upload a picture:</label>
   <input
     on:change={onChange}
@@ -60,14 +65,14 @@
     />
   {/if}
 
-  {#if p != ""}
+  {#if p != "" && showInputPassword}
     <div>Password</div>
     <div>{p}</div>
   {/if}
   {#if qrNotFound}
     <div>No QR code found</div>
   {/if}
-</div>
+</section>
 
 <style>
   img {

@@ -14,6 +14,16 @@
 
 <section transition:slide>
   <div class="button-bar">
+    {#if showButtonRandomPassword}
+      <div class="item button-icon-red">
+        <Button
+          LeftIcon={IconRandom}
+          label="Random Password"
+          subtitle="Generate Random Password"
+          on:click={() => dispatch("random-password")}
+        />
+      </div>
+    {/if}
     <div class="item button-icon-red">
       <Button
         LeftIcon={IconCamera}
@@ -30,16 +40,6 @@
         on:click={() => dispatch("qr-code-image")}
       />
     </div>
-    {#if showButtonRandomPassword}
-      <div class="item button-icon-red">
-        <Button
-          LeftIcon={IconRandom}
-          label="Random Password"
-          subtitle="Generate Random Password"
-          on:click={() => dispatch("random-password")}
-        />
-      </div>
-    {/if}
   </div>
 </section>
 

@@ -21,6 +21,7 @@
     padding: 8px;
     margin: 8px;
     row-gap: 8px;
+    user-select: none;
   }
 
   h1 {
