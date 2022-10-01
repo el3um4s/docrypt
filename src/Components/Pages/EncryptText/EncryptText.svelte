@@ -131,6 +131,7 @@
 <style lang="postcss">
   .title-section {
     border: 4px solid var(--color-menu);
+    color: var(--color);
     padding: 10px;
     border-radius: 2px;
     margin: 0px;
@@ -140,6 +141,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    border: 4px solid var(--color-menu);
   }
 
   .button-bar .item {
@@ -147,7 +149,7 @@
     min-width: 240px;
     padding: 10px;
     text-align: center;
-    border: 4px solid var(--color-menu);
+    border: 4px solid transparent;
     border-radius: 2px;
     margin: 0px;
     cursor: pointer;

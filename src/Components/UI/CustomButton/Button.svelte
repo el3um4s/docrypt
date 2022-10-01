@@ -5,7 +5,7 @@
   export let RightIcon = null;
 </script>
 
-<section on:click>
+<section on:click class="custom-button">
   {#if LeftIcon}
     <div class="button-icon">
       <svelte:component this={LeftIcon} height="32px" />
@@ -41,13 +41,6 @@
     cursor: pointer;
     height: 64px;
     gap: 0.5em;
-  }
-
-  section:hover {
-    background-color: var(--color-menu-hover);
-    color: var(--color-menu);
-    border-color: var(--color-menu);
-    border-radius: 4px;
   }
 
   .label {

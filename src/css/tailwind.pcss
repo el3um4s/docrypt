@@ -15,6 +15,8 @@
   --color-gray: #747474;
   --color-blue: #0875b5;
   --color-purple: #b949fb;
+  --color-red: #e55451;
+  --color-coral: lightcoral;
 }
 
 @layer base {
@@ -59,17 +61,13 @@
     @apply no-underline bg-[color:var(--color-menu-hover)] text-[color:var(--color-menu)] cursor-pointer;
   }
 
-  /* button:hover {
-    @apply no-underline bg-[color:var(--color-menu-hover)] cursor-pointer;
-  } */
-
   button {
     @apply py-2 px-4 font-semibold p-2 rounded border border-[color:var(--color)];
   }
 
-  header {
-    @apply flex flex-row justify-between items-center p-2 bg-[color:var(--color-menu)] sticky top-0 left-0 right-0 z-50;
-  }
+  /* header {
+    @apply flex flex-row justify-between items-center p-2 sticky top-0 left-0 right-0 z-50;
+  } */
 
   main {
     @apply w-full max-w-4xl mx-auto p-4;
@@ -77,6 +75,77 @@
 }
 
 @layer components {
+  .header-page {
+    @apply flex flex-row justify-between items-center p-2 sticky top-0 left-0 right-0 z-50;
+    transition: all 0.5s ease-in-out;
+    background-color: var(--color-menu);
+
+    svg {
+      fill: var(--color-menu);
+      stroke: var(--color-menu-hover);
+    }
+
+    &.Home {
+      background-color: var(--color-menu);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-menu);
+        stroke: var(--color-menu-hover);
+      }
+    }
+
+    &.EncryptText {
+      background-color: var(--color-yellow);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-yellow);
+        stroke: var(--color-menu);
+      }
+    }
+
+    &.DecryptText {
+      background-color: var(--color-green);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-green);
+        stroke: var(--color-menu);
+      }
+    }
+
+    &.ManagePassword {
+      background-color: var(--color-red);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-red);
+        stroke: var(--color-menu);
+      }
+    }
+
+    &.Settings {
+      background-color: var(--color-blue);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-blue);
+        stroke: var(--color-menu);
+      }
+    }
+
+    &.About {
+      background-color: var(--color-purple);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-purple);
+        stroke: var(--color-menu);
+      }
+    }
+  }
+
   .yellow {
     color: var(--color-yellow);
 
@@ -170,12 +239,28 @@
     }
   }
 
+  .red {
+    color: var(--color-red);
+
+    h1 {
+      color: var(--color);
+      text-shadow: -1px -1px 0 var(--color-red), 1px -1px 0 var(--color-red),
+        -1px 1px 0 var(--color-red), 1px 1px 0 var(--color-red);
+    }
+
+    svg {
+      fill: var(--color-red);
+      stroke: var(--color-menu);
+    }
+  }
+
   .yellow:hover,
   .green:hover,
   .orange:hover,
   .gray:hover,
   .blue:hover,
-  .purple:hover {
+  .purple:hover,
+  .red:hover {
     opacity: 0.4;
     color: var(--color-menu);
 
@@ -219,6 +304,10 @@
     background-color: var(--color-purple);
   }
 
+  .red:hover {
+    background-color: var(--color-red);
+  }
+
   .select-value {
     @apply p-4 flex flex-row justify-start items-center gap-4 flex-wrap;
     border: 0.25rem solid var(--color-menu);
@@ -241,13 +330,39 @@
     }
   }
 
-  .button-icon > svg {
-    fill: var(--color-menu-hover);
-    stroke: var(--color-menu-hover);
+  .custom-button {
+    &:hover {
+      background-color: var(--color-menu-hover);
+      color: var(--color-menu);
+      border-color: var(--color-menu);
+      border-radius: 4px;
+
+      svg {
+        fill: var(--color-menu);
+        stroke: transparent;
+      }
+    }
+
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: var(--color-menu-hover);
+      stroke: var(--color-menu-hover);
+    }
   }
 
-  .button-icon:hover > svg {
-    fill: var(--color-menu);
-    stroke: transparent;
+  .button-icon-yellow .custom-button {
+    &:hover {
+      background-color: var(--color-yellow);
+      svg {
+        fill: var(--color-menu);
+        stroke: transparent;
+      }
+    }
+
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: var(--color-yellow);
+      stroke: var(--color-yellow);
+    }
   }
 }

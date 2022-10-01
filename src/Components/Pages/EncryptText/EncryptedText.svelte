@@ -44,28 +44,28 @@
   </div>
 
   <div class="button-bar">
-    <div class="item">
+    <div class="item button-icon-yellow">
       <Button
         label="Share Crypted Text"
         LeftIcon={IconSend}
         on:click={shareText}
       />
     </div>
-    <div class="item">
+    <div class="item button-icon-yellow">
       <Button
         label="Share Crypted Link"
         LeftIcon={IconLink}
         on:click={shareLink}
       />
     </div>
-    <div class="item">
+    <div class="item button-icon-yellow">
       <Button
         label="Share Text File"
         LeftIcon={IconSendDocument}
         on:click={shareFile}
       />
     </div>
-    <div class="item">
+    <div class="item button-icon-yellow">
       <Button
         label="Save Text File"
         LeftIcon={IconDownload}
@@ -104,6 +104,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    /* border: 4px solid var(--color-menu); */
   }
 
   .button-bar .item {
@@ -111,7 +112,7 @@
     min-width: 240px;
     padding: 10px;
     text-align: center;
-    border: 4px solid var(--color-menu);
+    border: 4px solid transparent;
     border-radius: 2px;
     margin: 0px;
     cursor: pointer;

@@ -6,6 +6,11 @@
 
   import password from "../../../Stores/Password";
 
+  import Button from "../../UI/CustomButton/Button.svelte";
+  import IconNext from "../../UI/SVG/ICO/IconNext.svelte";
+  import IconBack from "../../UI/SVG/ICO/IconBack.svelte";
+  import IconNewMessage from "../../UI/SVG/ICO/IconNewMessage.svelte";
+
   import MarkedText from "../../UI/MarkedText/MarkedText.svelte";
   import InsertPassword from "../../UI/Password/InsertPassword.svelte";
 
@@ -34,39 +39,81 @@
 <section transition:slide>
   {#if status == "Input"}
     <div transition:slide>
-      <h1>Input</h1>
+      <div class="title-section">
+        <h1>Input</h1>
 
-      <h3>Write here the text to be decrypted</h3>
-
+        <h3>Write here the text to be decrypted</h3>
+      </div>
       <textarea
         bind:value={cipherText}
         placeholder="Write here the text to be decrypted"
       />
 
-      <button on:click={() => (status = "Password")}>Next</button>
+      <div class="button-bar">
+        <div class="item">
+          <Button
+            label="Next"
+            subtitle="Insert password"
+            RightIcon={IconNext}
+            on:click={() => (status = "Password")}
+          />
+        </div>
+      </div>
     </div>
   {:else if status == "Password"}
     <div transition:slide>
-      <h1>Password</h1>
-
+      <div class="title-section">
+        <h1>Password</h1>
+      </div>
       <InsertPassword />
 
-      <button on:click={() => (status = "Input")}>Back</button>
-      <button on:click={() => (status = "Show")}>Next</button>
+      <div class="button-bar">
+        <div class="item">
+          <Button
+            label="Back"
+            subtitle="Insert Crypted Text"
+            LeftIcon={IconBack}
+            on:click={() => (status = "Input")}
+          />
+        </div>
+        <div class="item">
+          <Button
+            label="Next"
+            subtitle="Show Decrypted text"
+            RightIcon={IconNext}
+            on:click={() => (status = "Show")}
+          />
+        </div>
+      </div>
     </div>
   {:else if status == "Show" && success}
     <div transition:slide>
-      <h1>Decrypted Text</h1>
-
+      <div class="title-section">
+        <h1>Decrypted Text</h1>
+      </div>
       <MarkedText bind:text showPlainText={false} showHTML={true} />
 
-      <button on:click={() => (status = "Password")}>Back</button>
-      <button
-        on:click={() => {
-          status = "Input";
-          cipherText = "";
-        }}>New Text</button
-      >
+      <div class="button-bar">
+        <div class="item">
+          <Button
+            label="Password"
+            subtitle="Insert password"
+            LeftIcon={IconBack}
+            on:click={() => (status = "Password")}
+          />
+        </div>
+        <div class="item">
+          <Button
+            label="New Decryption"
+            subtitle="Decrypt a new message"
+            RightIcon={IconNewMessage}
+            on:click={() => {
+              status = "Input";
+              cipherText = "";
+            }}
+          />
+        </div>
+      </div>
     </div>
   {:else if status == "Show" && !success}
     <div transition:slide>
@@ -74,13 +121,27 @@
 
       <h3>Error</h3>
 
-      <button on:click={() => (status = "Password")}>Back</button>
-      <button
-        on:click={() => {
-          status = "Input";
-          cipherText = "";
-        }}>New Text</button
-      >
+      <div class="button-bar">
+        <div class="item">
+          <Button
+            label="Password"
+            subtitle="Insert password"
+            LeftIcon={IconBack}
+            on:click={() => (status = "Password")}
+          />
+        </div>
+        <div class="item">
+          <Button
+            label="New Decryption"
+            subtitle="Decrypt a new message"
+            RightIcon={IconNewMessage}
+            on:click={() => {
+              status = "Input";
+              cipherText = "";
+            }}
+          />
+        </div>
+      </div>
     </div>
   {/if}
 </section>
@@ -90,5 +151,33 @@
     width: 100%;
     min-height: 360px;
     padding: 0.25em;
+  }
+
+  .title-section {
+    border: 4px solid var(--color-menu);
+    color: var(--color);
+    padding: 10px;
+    border-radius: 2px;
+    margin: 0px;
+    transition: all 0.5s ease-in-out;
+  }
+  .button-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 4px solid var(--color-menu);
+  }
+
+  .button-bar .item {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px;
+    text-align: center;
+    border: 4px solid transparent;
+    border-radius: 2px;
+    margin: 0px;
+    cursor: pointer;
+
+    transition: all 0.5s ease-in-out;
   }
 </style>

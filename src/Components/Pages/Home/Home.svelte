@@ -32,7 +32,7 @@
       }}
     />
   </div>
-  <div class="item orange">
+  <div class="item red">
     <Choose
       logo={LogoPassword}
       title="Password"
