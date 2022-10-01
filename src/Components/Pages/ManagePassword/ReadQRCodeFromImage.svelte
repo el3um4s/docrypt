@@ -40,7 +40,7 @@
 
 <section transition:slide>
   {#if p != ""}
-    <div transition:slide class="title-section successMessage">
+    <div transition:slide class="title-section successMessage ">
       <h3>QR Code found</h3>
 
       {#if showInputPassword}
@@ -49,25 +49,29 @@
         </div>
       {/if}
 
-      <Button
-        on:click={() => {
-          p = "";
-        }}
-        label="Scan again"
-      />
+      <div class="button-icon-red">
+        <Button
+          on:click={() => {
+            p = "";
+          }}
+          label="Scan again"
+        />
+      </div>
     </div>
   {/if}
   {#if qrNotFound}
     <div transition:slide class="title-section errorMessage">
       <h3>QR Code not found</h3>
 
-      <Button
-        on:click={() => {
-          p = "";
-          qrNotFound = false;
-        }}
-        label="Scan again"
-      />
+      <div class="button-icon-red">
+        <Button
+          on:click={() => {
+            p = "";
+            qrNotFound = false;
+          }}
+          label="Scan again"
+        />
+      </div>
     </div>
   {/if}
   {#if p == "" && !qrNotFound}
