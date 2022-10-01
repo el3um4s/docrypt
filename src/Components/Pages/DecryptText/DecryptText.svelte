@@ -44,11 +44,12 @@
 
         <h3>Write here the text to be decrypted</h3>
       </div>
-      <textarea
-        bind:value={cipherText}
-        placeholder="Write here the text to be decrypted"
-      />
-
+      <div class="textarea" transition:slide>
+        <textarea
+          bind:value={cipherText}
+          placeholder="Write here the text to be decrypted"
+        />
+      </div>
       <div class="button-bar">
         <div class="item">
           <Button
@@ -117,9 +118,18 @@
     </div>
   {:else if status == "Show" && !success}
     <div transition:slide>
-      <h1>Decrypted Text</h1>
+      <div class="title-section">
+        <h1>Decrypted Text</h1>
 
-      <h3>Error</h3>
+        <h3>Error</h3>
+      </div>
+      <div class="textarea" transition:slide>
+        <div class="errorMessage">
+          <p>Oops, something went wrong.</p>
+
+          <p>Check if the password and the text are correct.</p>
+        </div>
+      </div>
 
       <div class="button-bar">
         <div class="item">
@@ -147,10 +157,27 @@
 </section>
 
 <style lang="postcss">
+  .textarea {
+    flex: 1;
+    min-width: 240px;
+    padding: 10px;
+    border: 4px solid var(--color-menu);
+    border-radius: 2px;
+    margin: 0px;
+    transition: all 0.5s ease-in-out;
+  }
   textarea {
     width: 100%;
     min-height: 360px;
     padding: 0.25em;
+  }
+
+  .errorMessage {
+    padding: 10px;
+    color: var(--color-red);
+    border-radius: 2px;
+    margin: 0px;
+    transition: all 0.5s ease-in-out;
   }
 
   .title-section {
