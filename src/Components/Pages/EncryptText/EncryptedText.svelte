@@ -10,6 +10,8 @@
   import IconSendDocument from "../../UI/SVG/ICO/IconSendDocument.svelte";
   import IconLink from "../../UI/SVG/ICO/IconLink.svelte";
 
+  const pageLang = "EncryptedText";
+
   const shareText = () => {
     navigator.share({ text: cipherText } as ShareData);
   };
@@ -46,28 +48,32 @@
   <div class="button-bar">
     <div class="item button-icon-yellow">
       <Button
-        label="Share Crypted Text"
+        {pageLang}
+        label="Share Encrypted Text"
         LeftIcon={IconSend}
         on:click={shareText}
       />
     </div>
     <div class="item button-icon-yellow">
       <Button
-        label="Share Crypted Link"
+        {pageLang}
+        label="Share Encrypted Link"
         LeftIcon={IconLink}
         on:click={shareLink}
       />
     </div>
     <div class="item button-icon-yellow">
       <Button
-        label="Share Text File"
+        {pageLang}
+        label="Share Encrypted File"
         LeftIcon={IconSendDocument}
         on:click={shareFile}
       />
     </div>
     <div class="item button-icon-yellow">
       <Button
-        label="Save Text File"
+        {pageLang}
+        label="Save Encrypted File"
         LeftIcon={IconDownload}
         on:click={saveFile}
       />

@@ -9,12 +9,15 @@
   import LogoSettings from "../../UI/SVG/LOGO/LogoSettings.svelte";
   import LogoPassword from "../../UI/SVG/LOGO/LogoPassword.svelte";
   import LogoAbout from "../../UI/SVG/LOGO/LogoAbout.svelte";
+
+  const pageLang = "Home";
 </script>
 
 <section transition:slide>
   <div class="item yellow">
     <Choose
       logo={LogoEncryptText}
+      {pageLang}
       title="Encrypt"
       subtitle="Encrypt your text"
       on:click={() => {
@@ -25,6 +28,7 @@
   <div class="item green">
     <Choose
       logo={LogoDecryptText}
+      {pageLang}
       title="Decrypt"
       subtitle="Decrypt your text"
       on:click={() => {
@@ -35,6 +39,7 @@
   <div class="item red">
     <Choose
       logo={LogoPassword}
+      {pageLang}
       title="Password"
       subtitle="Manage your password"
       on:click={() => {
@@ -45,6 +50,7 @@
   <div class="item blue">
     <Choose
       logo={LogoSettings}
+      {pageLang}
       title="Settings"
       subtitle="Language and other settings"
       on:click={() => {
@@ -55,6 +61,7 @@
   <div class="item purple">
     <Choose
       logo={LogoAbout}
+      {pageLang}
       title="About"
       subtitle="About this app"
       on:click={() => {

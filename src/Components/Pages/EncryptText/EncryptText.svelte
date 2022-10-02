@@ -14,6 +14,9 @@
   import InsertPassword from "../ManagePassword/InsertPassword.svelte";
   import EncryptedText from "./EncryptedText.svelte";
 
+  import Lang from "../../Lang.svelte";
+  const pageLang = "EncryptText";
+
   let status: "Input" | "Password" | "Show" = "Input";
 
   let text = ``;
@@ -51,14 +54,15 @@
   {#if status === "Input"}
     <div transition:slide>
       <div class="title-section">
-        <h1>Input</h1>
-        <h3>Write here the text to be encrypted</h3>
+        <h1><Lang c={pageLang} v="Input" /></h1>
+        <h3><Lang c={pageLang} v="Write here the text to be encrypted" /></h3>
       </div>
       <MarkedText bind:text />
 
       <div class="button-bar">
         <div class="item">
           <Button
+            {pageLang}
             label="Next"
             subtitle="Insert password"
             RightIcon={IconNext}
@@ -70,8 +74,10 @@
   {:else if status === "Password"}
     <div transition:slide>
       <div class="title-section">
-        <h1>Password</h1>
-        <h3>Insert the password to encrypt the text</h3>
+        <h1><Lang c={pageLang} v="Password" /></h1>
+        <h3>
+          <Lang c={pageLang} v="Password" />
+        </h3>
       </div>
 
       <InsertPassword showInputPassword={false} />
@@ -79,6 +85,7 @@
       <div class="button-bar">
         <div class="item">
           <Button
+            {pageLang}
             label="Back"
             subtitle="Insert Text"
             LeftIcon={IconBack}
@@ -87,6 +94,7 @@
         </div>
         <div class="item">
           <Button
+            {pageLang}
             label="Next"
             subtitle="Show Encrypted text"
             RightIcon={IconNext}
@@ -98,14 +106,15 @@
   {:else if status === "Show"}
     <div transition:slide>
       <div class="title-section">
-        <h1>Encrypted Text</h1>
-        <h3>Here is the encrypted text</h3>
+        <h1><Lang c={pageLang} v="Encrypted Text" /></h1>
+        <h3><Lang c={pageLang} v="Here is the encrypted text" /></h3>
       </div>
       <EncryptedText {cipherText} />
 
       <div class="button-bar">
         <div class="item">
           <Button
+            {pageLang}
             label="Password"
             subtitle="Insert password"
             LeftIcon={IconBack}
@@ -114,6 +123,7 @@
         </div>
         <div class="item">
           <Button
+            {pageLang}
             label="New Message"
             subtitle="Encrypt a new message"
             RightIcon={IconNewMessage}

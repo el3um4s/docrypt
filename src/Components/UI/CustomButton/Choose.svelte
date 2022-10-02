@@ -1,15 +1,25 @@
 <script lang="ts">
   import LogoGeneric from "../SVG/LOGO/LogoGeneric.svelte";
 
+  import Lang from "../../Lang.svelte";
+
   export let logo = LogoGeneric;
   export let title = "title";
   export let subtitle = "subtitle";
+
+  export let pageLang = "Home";
+
+  $: c = pageLang;
 </script>
 
 <section on:click>
   <svelte:component this={logo} height="64px" />
-  <h1>{title}</h1>
-  <h3>{subtitle}</h3>
+  <h1>
+    <Lang {c} v={title} />
+  </h1>
+  <h3>
+    <Lang {c} v={subtitle} />
+  </h3>
 </section>
 
 <style lang="postcss">

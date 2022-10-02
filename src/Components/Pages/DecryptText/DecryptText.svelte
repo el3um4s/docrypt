@@ -14,6 +14,9 @@
   import MarkedText from "../../UI/MarkedText/MarkedText.svelte";
   import InsertPassword from "../ManagePassword/InsertPassword.svelte";
 
+  import Lang from "../../Lang.svelte";
+  const pageLang = "DecryptText";
+
   const searchParams = new URL(location.href).searchParams;
   const cryptedLink: string = searchParams.get("message");
 
@@ -47,19 +50,21 @@
   {#if status == "Input"}
     <div transition:slide>
       <div class="title-section">
-        <h1>Input</h1>
+        <h1>
+          <Lang c={pageLang} v="Input" />
+        </h1>
 
-        <h3>Write here the text to be decrypted</h3>
+        <h3>
+          <Lang c={pageLang} v="Write here the text to be decrypted" />
+        </h3>
       </div>
       <div class="textarea" transition:slide>
-        <textarea
-          bind:value={cipherText}
-          placeholder="Write here the text to be decrypted"
-        />
+        <textarea bind:value={cipherText} placeholder="..." />
       </div>
       <div class="button-bar">
         <div class="item">
           <Button
+            {pageLang}
             label="Next"
             subtitle="Insert password"
             RightIcon={IconNext}
@@ -71,7 +76,9 @@
   {:else if status == "Password"}
     <div transition:slide>
       <div class="title-section">
-        <h1>Password</h1>
+        <h1>
+          <Lang c={pageLang} v="Password" />
+        </h1>
       </div>
       <InsertPassword
         showInputPassword={false}
@@ -81,6 +88,7 @@
       <div class="button-bar">
         <div class="item">
           <Button
+            {pageLang}
             label="Back"
             subtitle="Insert Crypted Text"
             LeftIcon={IconBack}
@@ -89,6 +97,7 @@
         </div>
         <div class="item">
           <Button
+            {pageLang}
             label="Next"
             subtitle="Show Decrypted text"
             RightIcon={IconNext}
@@ -100,13 +109,16 @@
   {:else if status == "Show" && success}
     <div transition:slide>
       <div class="title-section">
-        <h1>Decrypted Text</h1>
+        <h1>
+          <Lang c={pageLang} v="Decrypted Text" />
+        </h1>
       </div>
       <MarkedText bind:text showPlainText={false} showHTML={true} />
 
       <div class="button-bar">
         <div class="item">
           <Button
+            {pageLang}
             label="Password"
             subtitle="Insert password"
             LeftIcon={IconBack}
@@ -115,6 +127,7 @@
         </div>
         <div class="item">
           <Button
+            {pageLang}
             label="New Decryption"
             subtitle="Decrypt a new message"
             RightIcon={IconNewMessage}
@@ -130,21 +143,24 @@
   {:else if status == "Show" && !success}
     <div transition:slide>
       <div class="title-section">
-        <h1>Decrypted Text</h1>
-
-        <h3>Error</h3>
+        <h1><Lang c={pageLang} v="Decrypted Text" /></h1>
       </div>
       <div class="textarea" transition:slide>
         <div class="errorMessage">
-          <p>Oops, something went wrong.</p>
-
-          <p>Check if the password and the text are correct.</p>
+          <p><Lang c={pageLang} v="Ops, something went wrong." /></p>
+          <p>
+            <Lang
+              c={pageLang}
+              v="Check if the password and the text are correct."
+            />
+          </p>
         </div>
       </div>
 
       <div class="button-bar">
         <div class="item">
           <Button
+            {pageLang}
             label="Password"
             subtitle="Insert password"
             LeftIcon={IconBack}
@@ -153,6 +169,7 @@
         </div>
         <div class="item">
           <Button
+            {pageLang}
             label="New Decryption"
             subtitle="Decrypt a new message"
             RightIcon={IconNewMessage}
