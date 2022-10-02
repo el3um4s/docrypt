@@ -119,6 +119,7 @@
             subtitle="Decrypt a new message"
             RightIcon={IconNewMessage}
             on:click={() => {
+              window.history.replaceState({}, document.title, "/");
               status = "Input";
               cipherText = "";
             }}
@@ -156,6 +157,7 @@
             subtitle="Decrypt a new message"
             RightIcon={IconNewMessage}
             on:click={() => {
+              window.history.replaceState({}, document.title, "/");
               status = "Input";
               cipherText = "";
             }}
