@@ -17,7 +17,7 @@
   const shareLink = () => {
     navigator.share({
       text: "",
-      url: `https://docrypt.org/index?message=${cipherText}`,
+      url: `https://docrypt.org?message=${cipherText}`,
     } as ShareData);
   };
 

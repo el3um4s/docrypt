@@ -14,6 +14,14 @@
   import MarkedText from "../../UI/MarkedText/MarkedText.svelte";
   import InsertPassword from "../ManagePassword/InsertPassword.svelte";
 
+  const searchParams = new URL(location.href).searchParams;
+  const cryptedLink: string = searchParams.get("message");
+
+  let cipherText = "";
+  if (cryptedLink) {
+    cipherText = cryptedLink;
+  }
+
   let status: "Input" | "Password" | "Show" = "Input";
 
   const decodeText = (text: string, password: string): [string, boolean] => {
@@ -32,7 +40,6 @@
       : [result.toString(), true];
   };
 
-  let cipherText = "";
   $: [text, success] = decodeText(cipherText, $password);
 </script>
 

@@ -4,12 +4,23 @@
 
   import match from "@el3um4s/match";
   import page from "./Stores/Page";
+  import { isOfTypePage } from "./Stores/Page";
   import Home from "./Components/Pages/Home/Home.svelte";
   import About from "./Components/Pages/About/About.svelte";
   import Settings from "./Components/Pages/Settings/Settings.svelte";
   import EncryptText from "./Components/Pages/EncryptText/EncryptText.svelte";
   import DecryptText from "./Components/Pages/DecryptText/DecryptText.svelte";
   import ManagePassword from "./Components/Pages/ManagePassword/ManagePassword.svelte";
+
+  const searchParams = new URL(location.href).searchParams;
+  const pageParam: string = searchParams.get("page");
+  const cryptedLink: string = searchParams.get("message");
+
+  if (cryptedLink) {
+    page.set("DecryptText");
+  } else if (pageParam) {
+    page.set(isOfTypePage(pageParam) ? pageParam : "Home");
+  }
 
   let pageSelected: any;
 
