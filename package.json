@@ -1,6 +1,6 @@
 {
   "name": "docrypt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Encrypt and decrypt documents and images in your browser",
   "repository": {
     "type": "git",
