@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Lang from "../Default/Lang.svelte";
+  import Lang from "../Lang.svelte";
   import textToConverter from "../../Stores/TextToConverter";
 
   let files;
@@ -65,18 +65,4 @@
     height: auto;
     margin-top: 16px;
   }
-
-  /* .btn {
-    display: inline-block;
-    background-color: #00b531;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .btn:hover {
-    filter: brightness(0.9);
-  } */
 </style>

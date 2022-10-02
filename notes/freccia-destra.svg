@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32.0px"
+   height="32.0px"
+   viewBox="0 0 32.0 32.0"
+   version="1.1"
+   id="SVGRoot"
+   sodipodi:docname="freccia-destra.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1212"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="32"
+     inkscape:cx="14.953125"
+     inkscape:cy="22.859375"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1335" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1207" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="color:#000000;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3;-inkscape-stroke:none"
+       d="m 29.704257,16 h -15"
+       id="path3527" />
+    <g
+       id="g3515-7"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.98162104,0,0,1.0104167,0.5091899,-1.0520833)"
+       class="UnoptimicedTransforms">
+      <path
+         id="path6593-2"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.1"
+         d="m 3.5,5 v 10.5 h 9.300781 v -4.800781 c -0.06895,-1.8663634 2.117371,-3.2166501 3.75586,-2.3203128 l 13.486328,6.7421878 c 2.026568,1.01258 1.066021,3.646065 -0.765625,4.140625 l -12.720703,6.359375 c -2.35635,1.185133 -4.074889,-1.314818 -3.75586,-3.41211 V 18.5 H 3.5 V 29 h -3 V 5 Z" />
+    </g>
+  </g>
+</svg>

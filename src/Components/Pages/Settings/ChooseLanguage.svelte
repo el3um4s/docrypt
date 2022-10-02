@@ -1,0 +1,28 @@
+<script lang="ts">
+  import Lang from "../../Lang.svelte";
+  import lang from "../../../Stores/Lang";
+  import { translation } from "../../../Languages/Languages";
+
+  let selected = "en";
+</script>
+
+<div class="select-value">
+  <label for="changeLanguage"><Lang c="menu" v="changeLanguage" /></label>
+  <select
+    bind:value={selected}
+    on:change={() => lang.set(selected)}
+    id="changeLanguage"
+  >
+    {#each translation as l}
+      <option value={l.id}>
+        {l.name}
+      </option>
+    {/each}
+  </select>
+</div>
+
+<style lang="postcss">
+  select:focus {
+    border-color: var(--color-blue);
+  }
+</style>

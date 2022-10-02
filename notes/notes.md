@@ -1,8 +1,8 @@
 [File Lock](https://filelock.org/)
 
-- [CryptoJS](http://code.google.com/p/crypto-js/) by Jeff Mott
-- [FileSaver.js](http://github.com/eligrey/FileSaver.js) and [Blob.js](http://github.com/eligrey/Blob.js) by Eli Grey
-- Function [dataURLToBlob from filer.js](http://github.com/ebidel/filer.js) by Eric Bidelman
+[CryptoJS](http://code.google.com/p/crypto-js/) by Jeff Mott
+[FileSaver.js](http://github.com/eligrey/FileSaver.js) and [Blob.js](http://github.com/eligrey/Blob.js) by Eli Grey
+Function [dataURLToBlob from filer.js](http://github.com/ebidel/filer.js) by Eric Bidelman
 
 [Convert An Image To A DataURL or Base64 String Using JavaScript](https://pqina.nl/blog/convert-an-image-to-a-base64-string-with-javascript/)
 [Convert A File To A Base64 String Or DataURL Using JavaScript](https://pqina.nl/blog/convert-a-file-to-a-base64-string-with-javascript/)
@@ -19,3 +19,8 @@
 
 [js-base64](https://www.npmjs.com/package/js-base64)
 [dankogai/js-base64](https://github.com/dankogai/js-base64)
+
+[50 Gorgeous Color Schemes From Award-Winning Websites](https://visme.co/blog/website-color-schemes/)
+
+https://www.flaticon.com/packs/cryptography-3?word=cryptography&style_id=1054&family_id=263&group_id=313
+https://www.flaticon.com/packs/interface-60
