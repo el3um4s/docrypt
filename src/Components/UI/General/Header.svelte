@@ -7,7 +7,12 @@
 </script>
 
 <header class="header-page {p}">
-  <div on:click={() => page.set("Home")}>
+  <div
+    on:click={() => {
+      page.set("Home");
+      window.history.replaceState({}, document.title, "/");
+    }}
+  >
     <Logo height="32px" />
   </div>
 </header>

@@ -13,6 +13,21 @@ export type Page =
   | "EncryptPhotoStream"
   | "EncryptPhothoApp";
 
+export const isOfTypePage = (keyInput: string): keyInput is Page => {
+  return [
+    "Home",
+    "EncryptText",
+    "DecryptText",
+    "ManagePassword",
+    "Settings",
+    "About",
+    "EncryptFile",
+    "DecryptFile",
+    "EncryptPhotoStream",
+    "EncryptPhothoApp",
+  ].includes(keyInput);
+};
+
 const pageStore: Writable<Page> = writable("Home");
 
 const page = {
