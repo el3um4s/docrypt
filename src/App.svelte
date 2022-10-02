@@ -5,6 +5,15 @@
   import match from "@el3um4s/match";
   import page from "./Stores/Page";
   import { isOfTypePage } from "./Stores/Page";
+
+  import lang from "./Stores/Lang";
+
+  if (/^it\b/.test(navigator.language)) {
+    lang.set("it");
+  } else {
+    lang.set("en");
+  }
+
   import Home from "./Components/Pages/Home/Home.svelte";
   import About from "./Components/Pages/About/About.svelte";
   import Settings from "./Components/Pages/Settings/Settings.svelte";
@@ -51,6 +60,13 @@
 
 <svelte:head>
   <title>DoCrypt</title>
+  <html lang={$lang} />
+  <meta name="description" content="DoCrypt" />
+  <meta
+    name="keywords"
+    content="DoCrypt, Encrypt, Decrypt, AES, Password, QR Code"
+  />
+  <meta name="author" content="Samuele De Tomasi" />
 </svelte:head>
 
 <Header />

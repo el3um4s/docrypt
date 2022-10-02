@@ -9,6 +9,9 @@
 
   export let showInputPassword: boolean = true;
 
+  import Lang from "../../Lang.svelte";
+  const pageLang = "ReadQRCodeFromImage";
+
   password.set("");
   let p = "";
   $: password.set(p);
@@ -41,7 +44,9 @@
 <section transition:slide>
   {#if p != ""}
     <div transition:slide class="title-section successMessage ">
-      <h3>QR Code found</h3>
+      <h3>
+        <Lang c={pageLang} v="QR Code found" />
+      </h3>
 
       {#if showInputPassword}
         <div class="showPassword">
@@ -54,6 +59,7 @@
           on:click={() => {
             p = "";
           }}
+          {pageLang}
           label="Scan again"
         />
       </div>
@@ -61,7 +67,7 @@
   {/if}
   {#if qrNotFound}
     <div transition:slide class="title-section errorMessage">
-      <h3>QR Code not found</h3>
+      <h3><Lang c={pageLang} v="QR Code not found" /></h3>
 
       <div class="button-icon-red">
         <Button
@@ -69,6 +75,7 @@
             p = "";
             qrNotFound = false;
           }}
+          {pageLang}
           label="Scan again"
         />
       </div>
@@ -79,6 +86,7 @@
       <label for="qr" class="button-icon-red"
         ><Button
           LeftIcon={IconAddImage}
+          {pageLang}
           label="Upload a picture"
           subtitle="Select a picture with a QR Code"
         /></label

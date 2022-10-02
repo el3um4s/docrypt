@@ -10,6 +10,8 @@
   import IconRandom from "../../UI/SVG/ICO/IconRandom.svelte";
 
   export let showButtonRandomPassword: boolean = true;
+
+  const pageLang = "ButtonBarPassword";
 </script>
 
 <section transition:slide>
@@ -17,6 +19,7 @@
     {#if showButtonRandomPassword}
       <div class="item button-icon-red">
         <Button
+          {pageLang}
           LeftIcon={IconRandom}
           label="Random Password"
           subtitle="Generate Random Password"
@@ -26,17 +29,19 @@
     {/if}
     <div class="item button-icon-red">
       <Button
+        {pageLang}
         LeftIcon={IconCamera}
         label="QR Code Photo"
-        subtitle="Read QR Code from Photo"
+        subtitle="Read a QR Code from a Photo"
         on:click={() => dispatch("qr-code-photo")}
       />
     </div>
     <div class="item button-icon-red">
       <Button
+        {pageLang}
         LeftIcon={IconQrCode}
         label="QR Code Image"
-        subtitle="Read QR Code from Image"
+        subtitle="Read a QR Code from an Image"
         on:click={() => dispatch("qr-code-image")}
       />
     </div>

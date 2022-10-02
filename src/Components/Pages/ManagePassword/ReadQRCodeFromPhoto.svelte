@@ -9,6 +9,9 @@
 
   import IconStopScanner from "../../UI/SVG/ICO/IconStopScanner.svelte";
 
+  import Lang from "../../Lang.svelte";
+  const pageLang = "ReadQRCodeFromPhoto";
+
   export let showInputPassword: boolean = true;
 
   let videoElem: HTMLVideoElement;
@@ -56,7 +59,9 @@
 <section transition:slide>
   {#if p != ""}
     <div transition:slide class="title-section successMessage">
-      <h3>QR Code found</h3>
+      <h3>
+        <Lang c={pageLang} v="QR Code found" />
+      </h3>
 
       {#if showInputPassword}
         <div class="showPassword">
@@ -71,6 +76,7 @@
             p = "";
             scannerStopped = false;
           }}
+          {pageLang}
           label="Scan again"
         />
       </div>
@@ -79,7 +85,7 @@
 
   {#if scannerStopped}
     <div transition:slide class="title-section errorMessage">
-      <h3>QR Code not found</h3>
+      <h3><Lang c={pageLang} v="QR Code not found" /></h3>
 
       <div class="button-icon-red">
         <Button
@@ -88,6 +94,7 @@
             p = "";
             scannerStopped = false;
           }}
+          {pageLang}
           label="Scan again"
         />
       </div>
@@ -127,6 +134,7 @@
     {#if hasCamera && p == "" && !scannerStopped}
       <div class="stop-scanner button-icon-red">
         <Button
+          {pageLang}
           LeftIcon={IconStopScanner}
           label="Stop Scanner"
           on:click={() => {
@@ -140,7 +148,7 @@
 
   {#if !hasCamera}
     <div transition:slide class="errorCamera">
-      <p>Camera not found</p>
+      <p><Lang c={pageLang} v="Camera not found" /></p>
     </div>
   {/if}
 </section>

@@ -8,6 +8,8 @@
 
   import Button from "../../UI/CustomButton/Button.svelte";
 
+  const pageLang = "GenerateRandomPassword";
+
   password.set("");
 
   $: p = $password;
@@ -32,7 +34,8 @@
       on:click={() => {
         password.set(newPassword());
       }}
-      label="Generate random password"
+      {pageLang}
+      label="Generate Random Password"
     />
   </div>
   <canvas bind:this={canvas} transition:slide />
@@ -51,6 +54,7 @@
           link.href = pics.src;
           link.click();
         }}
+        {pageLang}
         label="Save QR Code to Image"
       />
     </div>

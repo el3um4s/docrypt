@@ -13,6 +13,9 @@
   import ButtonBarPassword from "./ButtonBarPassword.svelte";
 
   let component = null;
+  let value = 0;
+
+  const pageLang = "ManagePassword";
 </script>
 
 <section transition:slide>
@@ -20,6 +23,7 @@
     <div class="item yellow">
       <Choose
         logo={LogoRandomPassword}
+        {pageLang}
         title="Random Password"
         subtitle="Generate Random Password"
         on:click={() => {
@@ -30,8 +34,9 @@
     <div class="item green">
       <Choose
         logo={LogoPasswordFromPhoto}
+        {pageLang}
         title="QR Code Photo"
-        subtitle="Read a QR Code from a photo"
+        subtitle="Read a QR Code from a Photo"
         on:click={() => {
           component = ReadQRCodeFromPhoto;
         }}
@@ -40,8 +45,9 @@
     <div class="item orange">
       <Choose
         logo={LogoPasswordFromImage}
+        {pageLang}
         title="QR Code Image"
-        subtitle="Read a QR Code from an image"
+        subtitle="Read a QR Code from an Image"
         on:click={() => {
           component = ReadQRCodeFromImage;
         }}
@@ -51,19 +57,24 @@
     <div>
       <div class="item">
         <ButtonBarPassword
-          on:qr-code-image={() => {
+          on:qr-code-image={async () => {
             component = ReadQRCodeFromImage;
+            value += 1;
           }}
-          on:qr-code-photo={() => {
+          on:qr-code-photo={async () => {
             component = ReadQRCodeFromPhoto;
+            value += 1;
           }}
-          on:random-password={() => {
+          on:random-password={async () => {
             component = GenerateRandomPassword;
+            value += 1;
           }}
         />
       </div>
       <div class="item">
-        <svelte:component this={component} />
+        {#key value}
+          <svelte:component this={component} />
+        {/key}
       </div>
     </div>
   {/if}

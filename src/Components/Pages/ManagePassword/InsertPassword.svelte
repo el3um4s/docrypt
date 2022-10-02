@@ -13,26 +13,36 @@
 
   export let showInputPassword: boolean = true;
   export let showButtonRandomPassword: boolean = true;
-  let component;
+
+  let component = null;
+  let value = 0;
+
+  const pageLang = "InsertPassword";
 </script>
 
 <section transition:slide>
   <input bind:value={p} placeholder="password" />
   <ButtonBarPassword
     {showButtonRandomPassword}
-    on:qr-code-photo={() =>
-      (component =
-        component == ReadQRCodeFromPhoto ? null : ReadQRCodeFromPhoto)}
-    on:qr-code-image={() =>
-      (component =
-        component == ReadQRCodeFromImage ? null : ReadQRCodeFromImage)}
-    on:random-password={() =>
-      (component =
-        component == GenerateRandomPassword ? null : GenerateRandomPassword)}
+    on:qr-code-photo={() => {
+      component = component == ReadQRCodeFromPhoto ? null : ReadQRCodeFromPhoto;
+      value += 1;
+    }}
+    on:qr-code-image={() => {
+      component = component == ReadQRCodeFromImage ? null : ReadQRCodeFromImage;
+      value += 1;
+    }}
+    on:random-password={() => {
+      component =
+        component == GenerateRandomPassword ? null : GenerateRandomPassword;
+      value += 1;
+    }}
   />
   {#if component}
     <div transition:slide class="component">
-      <svelte:component this={component} {showInputPassword} />
+      {#key value}
+        <svelte:component this={component} {showInputPassword} />
+      {/key}
     </div>
   {/if}
 </section>

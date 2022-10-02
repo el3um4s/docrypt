@@ -3,7 +3,7 @@
   import lang from "../../../Stores/Lang";
   import { translation } from "../../../Languages/Languages";
 
-  let selected = "en";
+  let selected = $lang;
 </script>
 
 <div class="select-value">

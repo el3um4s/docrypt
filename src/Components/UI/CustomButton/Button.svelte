@@ -1,8 +1,14 @@
 <script lang="ts">
+  import Lang from "../../Lang.svelte";
+
   export let label: string = "";
   export let subtitle: string = "";
   export let LeftIcon = null;
   export let RightIcon = null;
+
+  export let pageLang = "Home";
+
+  $: c = pageLang;
 </script>
 
 <section on:click class="custom-button">
@@ -13,9 +19,13 @@
   {/if}
   {#if label !== ""}
     <div class="label">
-      <div>{label}</div>
+      <div>
+        <Lang {c} v={label} />
+      </div>
       {#if subtitle !== ""}
-        <div class="subtitle">{subtitle}</div>
+        <div class="subtitle">
+          <Lang {c} v={subtitle} />
+        </div>
       {/if}
     </div>
   {/if}
