@@ -4,10 +4,10 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import {
 	terser
-} from 'rollup-plugin-terser';
+} from '@el3um4s/rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from 'rollup-plugin-typescript2';
-import css from 'rollup-plugin-css-only';
+import css from '@el3um4s/rollup-plugin-css-only';
 import postcss from 'rollup-plugin-postcss';
 import versionInjector from 'rollup-plugin-version-injector';
 
@@ -89,6 +89,7 @@ export default {
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
 		!production && livereload('public'),
+
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
