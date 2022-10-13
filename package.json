@@ -22,8 +22,8 @@
     "check-updates:patch": "npx npm-check-updates --target patch"
   },
   "devDependencies": {
-    "@el3um4s/rollup-plugin-css-only": "^0.1.5",
-    "@el3um4s/rollup-plugin-terser": "^0.1.9",
+    "@el3um4s/rollup-plugin-css-only": "^1.0.0",
+    "@el3um4s/rollup-plugin-terser": "^1.0.1",
     "@rollup/plugin-commonjs": "^23.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-typescript": "^9.0.1",
@@ -34,7 +34,7 @@
     "@types/sjcl": "^1.0.30",
     "autoprefixer": "^10.4.12",
     "gh-pages": "^4.0.0",
-    "postcss": "^8.4.17",
+    "postcss": "^8.4.18",
     "postcss-load-config": "^4.0.1",
     "rollup": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.5",
