@@ -11,6 +11,10 @@ import css from '@el3um4s/rollup-plugin-css-only';
 import postcss from 'rollup-plugin-postcss';
 import versionInjector from 'rollup-plugin-version-injector';
 
+import {
+	spawn
+} from 'child_process';
+
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -24,7 +28,7 @@ function serve() {
 	return {
 		writeBundle() {
 			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+			server = spawn('npm', ['run', 'start', '--', '--dev'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
 			});
