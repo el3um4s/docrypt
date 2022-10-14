@@ -1,5 +1,6 @@
 <script lang="ts">
   export let cipherText = "";
+  import { slide } from "svelte/transition";
   import Button from "../../UI/CustomButton/Button.svelte";
 
   import saveBase64FileAsText from "../../../Functions/SaveBase64FileAsText";
@@ -11,10 +12,17 @@
   import IconLink from "../../UI/SVG/ICO/IconLink.svelte";
   import IconCopy from "../../UI/SVG/ICO/IconCopy.svelte";
 
+  import notifications from "../../UI/Notification/Notification";
+
   const pageLang = "EncryptedText";
 
   const copyText = () => {
     navigator.clipboard.writeText(cipherText);
+    notifications.send({
+      message: "Copied to clipboard",
+      type: "success",
+      timeout: 1500,
+    });
   };
 
   const shareText = () => {
@@ -46,7 +54,7 @@
 </script>
 
 <section>
-  <div class="button-bar">
+  <div class="button-bar" transition:slide>
     <div class="item button-icon-yellow">
       <Button
         {pageLang}
@@ -89,7 +97,7 @@
     </div>
   </div>
 
-  <div class="ciphertext">
+  <div class="ciphertext" transition:slide>
     {cipherText}
   </div>
 </section>

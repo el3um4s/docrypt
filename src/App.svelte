@@ -14,6 +14,8 @@
     lang.set("en");
   }
 
+  import Notification from "./Components/UI/Notification/Notification.svelte";
+
   import Home from "./Components/Pages/Home/Home.svelte";
   import About from "./Components/Pages/About/About.svelte";
   import Settings from "./Components/Pages/Settings/Settings.svelte";
@@ -73,6 +75,7 @@
 <main>
   <svelte:component this={pageSelected} />
 </main>
+<Notification />
 
 <style lang="postcss">
   main {
