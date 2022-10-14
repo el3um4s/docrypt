@@ -1,7 +1,6 @@
 <script lang="ts">
   export let width: string = "auto";
   export let height: string = "32px";
-  // enable-background="new 0 0 32 32"
 </script>
 
 <svg
