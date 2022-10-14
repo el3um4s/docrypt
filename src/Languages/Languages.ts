@@ -131,6 +131,10 @@ export const languages = {
     },
   },
   EncryptedText: {
+    "Copy Encrypted Text": {
+      en: "Copy Encrypted Text",
+      it: "Copia il testo cifrato",
+    },
     "Share Encrypted Text": {
       en: "Share Encrypted Text",
       it: "Condividi il testo cifrato",
@@ -209,7 +213,7 @@ export const languages = {
     },
     "Generate Random Password": {
       en: "Generate Random Password",
-      it: "Crea un password a caso",
+      it: "Crea una password a caso",
     },
     "QR Code Photo": {
       en: "QR Code Photo",
@@ -231,7 +235,7 @@ export const languages = {
   GenerateRandomPassword: {
     "Generate Random Password": {
       en: "Generate Random Password",
-      it: "Crea un password a caso",
+      it: "Crea una password a caso",
     },
     "Save QR Code to Image": {
       en: "Save QR Code to Image",

@@ -9,8 +9,13 @@
   import IconSend from "../../UI/SVG/ICO/IconSend.svelte";
   import IconSendDocument from "../../UI/SVG/ICO/IconSendDocument.svelte";
   import IconLink from "../../UI/SVG/ICO/IconLink.svelte";
+  import IconCopy from "../../UI/SVG/ICO/IconCopy.svelte";
 
   const pageLang = "EncryptedText";
+
+  const copyText = () => {
+    navigator.clipboard.writeText(cipherText);
+  };
 
   const shareText = () => {
     navigator.share({ text: cipherText } as ShareData);
@@ -41,11 +46,15 @@
 </script>
 
 <section>
-  <div class="ciphertext">
-    {cipherText}
-  </div>
-
   <div class="button-bar">
+    <div class="item button-icon-yellow">
+      <Button
+        {pageLang}
+        label="Copy Encrypted Text"
+        LeftIcon={IconCopy}
+        on:click={copyText}
+      />
+    </div>
     <div class="item button-icon-yellow">
       <Button
         {pageLang}
@@ -78,6 +87,10 @@
         on:click={saveFile}
       />
     </div>
+  </div>
+
+  <div class="ciphertext">
+    {cipherText}
   </div>
 </section>
 
