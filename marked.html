@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Marked</title>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+
+    <link rel='icon' type='image/png' href='favicon.png'>
+	<link rel='stylesheet' href='global.css'>
+	<link rel='stylesheet' href='build/base.css'>
+	<link rel='stylesheet' href='build/bundle.css'>
+    <!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-G2K2PZ0Q0K"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'G-G2K2PZ0Q0K');
+	</script>
+  </head>
+  <body>
+    <div id="marked" class="rendered"></div>
+    <script>
+        const response = document.getElementById('marked');
+        window.addEventListener('message', (event) => {
+            if  (event.origin !== "http://localhost:8080" && event.origin !== "https://docrypt.org/") {
+                return;
+            }
+        if (event.data?.marked) {
+            response.innerHTML = event.data.marked;
+        }
+        event.source.postMessage({connected: true}, "*");
+        });
+        window.postMessage({ opened: 1 }, '*');
+    </script>
+  </body>
+</html>
