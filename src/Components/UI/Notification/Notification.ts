@@ -1,4 +1,4 @@
-import { writable, derived } from "svelte/store";
+import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 
 const TIMEOUT = 3000;

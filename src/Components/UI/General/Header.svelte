@@ -3,12 +3,20 @@
 
   import page from "../../../Stores/Page";
   import password from "../../../Stores/Password";
+  import notifications from "../Notification/Notification";
 
   $: p = $page;
 
   const goHome = () => {
     page.set("Home");
-    password.set("");
+    if ($password != "") {
+      password.set("");
+      notifications.send({
+        message: "Password deleted",
+        type: "danger",
+        timeout: 2000,
+      });
+    }
     window.history.replaceState({}, document.title, "/");
   };
 </script>

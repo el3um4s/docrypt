@@ -8,6 +8,8 @@
 
   import Button from "../../UI/CustomButton/Button.svelte";
 
+  import notifications from "../../UI/Notification/Notification";
+
   const pageLang = "GenerateRandomPassword";
 
   password.set("");
@@ -33,6 +35,11 @@
     <Button
       on:click={() => {
         password.set(newPassword());
+        notifications.send({
+          message: "New Password Generated",
+          type: "success",
+          timeout: 1500,
+        });
       }}
       {pageLang}
       label="Generate Random Password"
