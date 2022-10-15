@@ -51,6 +51,12 @@
         >Marked</a
       >
     </li>
+    <li>
+      MarkDownn Extended Tables: <a
+        href="https://www.npmjs.com/package/marked-extended-tables"
+        >Marked Tables</a
+      >
+    </li>
   </ul>
 
   <p>Other utilities:</p>

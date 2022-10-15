@@ -2,10 +2,12 @@
   import { slide } from "svelte/transition";
 
   import { marked } from "marked";
+  import extendedTables from "marked-extended-tables";
 
   import IconEdit from "../SVG/ICO/IconEdit.svelte";
   import IconRenderHTML from "../SVG/ICO/IconRenderHTML.svelte";
 
+  marked.use(extendedTables());
   export let text = ``;
   let textArea: HTMLTextAreaElement;
 
