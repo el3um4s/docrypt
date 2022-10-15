@@ -28,12 +28,12 @@
   }
 
   window.addEventListener("message", (event) => {
-    if (
-      event.origin !== "http://localhost:8080" &&
-      event.origin !== "https://docrypt.org/"
-    ) {
-      return;
-    }
+    // if (
+    //   event.origin !== "http://localhost:8080" &&
+    //   event.origin !== "https://docrypt.org/"
+    // ) {
+    //   return;
+    // }
     if (event.data?.connected) {
       clearInterval(intervalID);
     }
