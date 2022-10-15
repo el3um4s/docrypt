@@ -71,11 +71,11 @@
   <meta name="author" content="Samuele De Tomasi" />
 </svelte:head>
 
+<Notification />
 <Header />
 <main>
   <svelte:component this={pageSelected} />
 </main>
-<Notification />
 
 <style lang="postcss">
   main {

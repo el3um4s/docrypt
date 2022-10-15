@@ -20,7 +20,7 @@
       animate:flip
       class="toast"
       style="background: {themes[notification.msg.type]};"
-      transition:fly={{ y: 50 }}
+      transition:fly={{ y: 128, duration: 800 }}
     >
       <div class="content">{notification.msg.message}</div>
     </div>
@@ -30,7 +30,7 @@
 <style>
   .notifications {
     position: fixed;
-    top: 10px;
+    top: 64px;
     left: 0;
     right: 0;
     margin: 0 auto;
