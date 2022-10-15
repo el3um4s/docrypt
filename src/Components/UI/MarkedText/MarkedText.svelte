@@ -6,6 +6,7 @@
 
   import IconEdit from "../SVG/ICO/IconEdit.svelte";
   import IconRenderHTML from "../SVG/ICO/IconRenderHTML.svelte";
+  import IconViewInNewWindow from "../SVG/ICO/IconViewInNewWindow.svelte";
 
   marked.use(extendedTables());
   export let text = ``;
@@ -13,6 +14,30 @@
 
   export let showPlainText = true;
   export let showHTML = false;
+
+  let newWindow: Window;
+  let isConnected = true;
+  let intervalID: string | number | NodeJS.Timeout;
+
+  const updateMarkedText = (t = text) => {
+    newWindow.postMessage({ marked: marked(t) }, "*");
+  };
+
+  $: if (newWindow) {
+    updateMarkedText(text);
+  }
+
+  window.addEventListener("message", (event) => {
+    if (
+      event.origin !== "http://localhost:8080" &&
+      event.origin !== "https://docrypt.org/"
+    ) {
+      return;
+    }
+    if (event.data?.connected) {
+      clearInterval(intervalID);
+    }
+  });
 </script>
 
 <section transition:slide>
@@ -31,6 +56,19 @@
     <button class:showHTML on:click={() => (showHTML = !showHTML)}>
       <IconRenderHTML
         --color-default={showHTML ? "var(--color-menu-hover)" : "var(--color)"}
+        --color-hover="var(--color)"
+      />
+    </button>
+    <button
+      on:click={() => {
+        const params = `status=no,location=no,toolbar=no,menubar=no,width=400,height=400`;
+        newWindow = window.open("marked.html", "marked", params);
+        isConnected = false;
+        intervalID = setInterval(updateMarkedText, 500);
+      }}
+    >
+      <IconViewInNewWindow
+        --color-default="var(--color)"
         --color-hover="var(--color)"
       />
     </button>
