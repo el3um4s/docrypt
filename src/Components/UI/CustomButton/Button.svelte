@@ -11,7 +11,6 @@
   $: p = pageLang;
 
   let button: HTMLElement;
-  // export let onEnterUseClick: boolean = true;
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
