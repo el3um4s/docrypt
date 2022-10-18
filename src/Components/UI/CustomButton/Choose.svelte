@@ -28,11 +28,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 8px;
-    margin: 8px;
+    padding: 2px;
     row-gap: 8px;
     user-select: none;
     border: 1px solid transparent;
+    width: 100%;
+    height: 100%;
   }
 
   button:focus {
