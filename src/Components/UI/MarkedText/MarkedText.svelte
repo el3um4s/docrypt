@@ -4,6 +4,8 @@
   import { marked } from "marked";
   import extendedTables from "marked-extended-tables";
 
+  import match from "@el3um4s/match";
+
   import IconEdit from "../SVG/ICO/IconEdit.svelte";
   import IconRenderHTML from "../SVG/ICO/IconRenderHTML.svelte";
   import IconViewInNewWindow from "../SVG/ICO/IconViewInNewWindow.svelte";
@@ -28,12 +30,6 @@
   }
 
   window.addEventListener("message", (event) => {
-    // if (
-    //   event.origin !== "http://localhost:8080" &&
-    //   event.origin !== "https://docrypt.org/"
-    // ) {
-    //   return;
-    // }
     if (event.data?.connected) {
       clearInterval(intervalID);
     }
@@ -78,20 +74,29 @@
     {#if showPlainText}
       <div class="item textarea" transition:slide>
         <textarea
+          tabindex="0"
           transition:slide
           bind:this={textArea}
           bind:value={text}
           on:keydown={(e) => {
-            if (e.key == "Tab") {
+            console.log(e);
+            const key = e.key;
+            // const ctrl = e.ctrlKey;
+            const shift = e.shiftKey;
+            match(key).on("Tab", () => {
               e.preventDefault();
-              const start = textArea.selectionStart;
-              const end = textArea.selectionEnd;
-              textArea.value =
-                textArea.value.substring(0, start) +
-                "\t" +
-                textArea.value.substring(end);
-              textArea.selectionStart = textArea.selectionEnd = start + 1;
-            }
+              if (shift) {
+                textArea.blur();
+              } else {
+                const start = textArea.selectionStart;
+                const end = textArea.selectionEnd;
+                textArea.value =
+                  textArea.value.substring(0, start) +
+                  "\t" +
+                  textArea.value.substring(end);
+                textArea.selectionStart = textArea.selectionEnd = start + 1;
+              }
+            });
           }}
         />
       </div>
@@ -167,6 +172,11 @@
     background-color: var(--color-menu-hover);
     color: var(--color-menu);
     border-color: var(--color-menu);
+    border-radius: 4px;
+  }
+
+  button:focus {
+    outline: 2px solid var(--color);
     border-radius: 4px;
   }
 </style>

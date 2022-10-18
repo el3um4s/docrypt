@@ -20,9 +20,7 @@
       {pageLang}
       title="Encrypt"
       subtitle="Encrypt your text"
-      on:click={() => {
-        page.set("EncryptText");
-      }}
+      on:click={() => page.set("EncryptText")}
     />
   </div>
   <div class="item green">

@@ -12,7 +12,7 @@
   $: c = pageLang;
 </script>
 
-<section on:click>
+<button on:click>
   <svelte:component this={logo} height="64px" />
   <h1>
     <Lang {c} v={title} />
@@ -20,10 +20,10 @@
   <h3>
     <Lang {c} v={subtitle} />
   </h3>
-</section>
+</button>
 
 <style lang="postcss">
-  section {
+  button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,8 +32,13 @@
     margin: 8px;
     row-gap: 8px;
     user-select: none;
+    border: 1px solid transparent;
   }
 
+  button:focus {
+    outline: 2px solid var(--color);
+    border-radius: 4px;
+  }
   h1 {
     text-transform: uppercase;
     letter-spacing: 10px;

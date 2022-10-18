@@ -21,8 +21,10 @@
   };
 </script>
 
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <header class="header-page {p}">
   <div
+    tabindex="0"
     on:click={goHome}
     on:keydown={(e) => {
       if (e.key === "Enter") {
@@ -33,3 +35,9 @@
     <Logo height="32px" />
   </div>
 </header>
+
+<style>
+  div:focus {
+    outline: 2px solid var(--color);
+  }
+</style>

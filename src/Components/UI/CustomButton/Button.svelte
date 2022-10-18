@@ -9,9 +9,22 @@
   export let pageLang = "Home";
 
   $: c = pageLang;
+
+  let button: HTMLElement;
 </script>
 
-<section on:click class="custom-button">
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<section
+  class="custom-button"
+  on:click
+  tabindex="0"
+  on:keydown={(e) => {
+    if (e.key === "Enter") {
+      button.click();
+    }
+  }}
+  bind:this={button}
+>
   {#if LeftIcon}
     <div class="button-icon">
       <svelte:component this={LeftIcon} height="32px" />
@@ -49,9 +62,14 @@
     padding: 0.25em;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
-    height: 64px;
+    height: 80px;
     gap: 0.5em;
     user-select: none;
+  }
+
+  section:focus {
+    outline: 2px solid var(--color);
+    border-radius: 4px;
   }
 
   .label {
