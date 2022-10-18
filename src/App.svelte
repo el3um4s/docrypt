@@ -6,7 +6,7 @@
   import page from "./Stores/Page";
   import { isOfTypePage } from "./Stores/Page";
 
-  import lang from "./Stores/Lang";
+  import lang from "./Components/UI/Languages/Lang";
 
   if (/^it\b/.test(navigator.language)) {
     lang.set("it");

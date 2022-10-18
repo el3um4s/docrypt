@@ -9,7 +9,7 @@
 
   import IconStopScanner from "../../UI/SVG/ICO/IconStopScanner.svelte";
 
-  import Lang from "../../Lang.svelte";
+  import Lang from "../../UI/Languages/Lang.svelte";
   const pageLang = "ReadQRCodeFromPhoto";
 
   export let showInputPassword: boolean = true;
@@ -60,7 +60,7 @@
   {#if p != ""}
     <div transition:slide class="title-section successMessage">
       <h3>
-        <Lang c={pageLang} v="QR Code found" />
+        <Lang p={pageLang} w="QR Code found" />
       </h3>
 
       {#if showInputPassword}
@@ -85,7 +85,7 @@
 
   {#if scannerStopped}
     <div transition:slide class="title-section errorMessage">
-      <h3><Lang c={pageLang} v="QR Code not found" /></h3>
+      <h3><Lang p={pageLang} w="QR Code not found" /></h3>
 
       <div class="button-icon-red">
         <Button
@@ -148,7 +148,7 @@
 
   {#if !hasCamera}
     <div transition:slide class="errorCamera">
-      <p><Lang c={pageLang} v="Camera not found" /></p>
+      <p><Lang p={pageLang} w="Camera not found" /></p>
     </div>
   {/if}
 </section>

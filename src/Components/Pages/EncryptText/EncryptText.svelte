@@ -14,7 +14,7 @@
   import InsertPassword from "../ManagePassword/InsertPassword.svelte";
   import EncryptedText from "./EncryptedText.svelte";
 
-  import Lang from "../../Lang.svelte";
+  import Lang from "../../UI/Languages/Lang.svelte";
   const pageLang = "EncryptText";
 
   let status: "Input" | "Password" | "Show" = "Input";
@@ -54,8 +54,8 @@
   {#if status === "Input"}
     <div transition:slide>
       <div class="title-section">
-        <h1><Lang c={pageLang} v="Input" /></h1>
-        <h3><Lang c={pageLang} v="Write here the text to be encrypted" /></h3>
+        <h1><Lang p={pageLang} w="Input" /></h1>
+        <h3><Lang p={pageLang} w="Write here the text to be encrypted" /></h3>
       </div>
       <MarkedText bind:text />
 
@@ -74,9 +74,9 @@
   {:else if status === "Password"}
     <div transition:slide>
       <div class="title-section">
-        <h1><Lang c={pageLang} v="Password" /></h1>
+        <h1><Lang p={pageLang} w="Password" /></h1>
         <h3>
-          <Lang c={pageLang} v="Password" />
+          <Lang p={pageLang} w="Password" />
         </h3>
       </div>
 
@@ -106,8 +106,8 @@
   {:else if status === "Show"}
     <div transition:slide>
       <div class="title-section">
-        <h1><Lang c={pageLang} v="Encrypted Text" /></h1>
-        <h3><Lang c={pageLang} v="Here is the encrypted text" /></h3>
+        <h1><Lang p={pageLang} w="Encrypted Text" /></h1>
+        <h3><Lang p={pageLang} w="Here is the encrypted text" /></h3>
       </div>
       <EncryptedText {cipherText} />
 

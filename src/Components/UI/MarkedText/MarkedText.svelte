@@ -79,7 +79,6 @@
           bind:this={textArea}
           bind:value={text}
           on:keydown={(e) => {
-            console.log(e);
             const key = e.key;
             // const ctrl = e.ctrlKey;
             const shift = e.shiftKey;

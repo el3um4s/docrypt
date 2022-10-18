@@ -1,5 +1,5 @@
 <script>
-  import Lang from "../Lang.svelte";
+  import Lang from "./Languages/Lang.svelte";
   import textToConverter from "../../Stores/TextToConverter";
 
   let files;
@@ -31,11 +31,11 @@
 </script>
 
 <div>
-  <label for="many"><Lang c="menu" v="chooseFiles" />:</label>
+  <label for="many"><Lang p="menu" w="chooseFiles" />:</label>
   <input bind:files id="many" type="file" />
 
   {#if files}
-    <h2><Lang c="menu" v="selectedFile" />:</h2>
+    <h2><Lang p="menu" w="selectedFile" />:</h2>
     {#each Array.from(files) as file}
       <p>{file.name} ({file.size} bytes)</p>
     {/each}

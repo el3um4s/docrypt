@@ -14,7 +14,7 @@
   import MarkedText from "../../UI/MarkedText/MarkedText.svelte";
   import InsertPassword from "../ManagePassword/InsertPassword.svelte";
 
-  import Lang from "../../Lang.svelte";
+  import Lang from "../../UI/Languages/Lang.svelte";
   const pageLang = "DecryptText";
 
   const searchParams = new URL(location.href).searchParams;
@@ -51,11 +51,11 @@
     <div transition:slide>
       <div class="title-section">
         <h1>
-          <Lang c={pageLang} v="Input" />
+          <Lang p={pageLang} w="Input" />
         </h1>
 
         <h3>
-          <Lang c={pageLang} v="Write here the text to be decrypted" />
+          <Lang p={pageLang} w="Write here the text to be decrypted" />
         </h3>
       </div>
       <div class="textarea" transition:slide>
@@ -77,7 +77,7 @@
     <div transition:slide>
       <div class="title-section">
         <h1>
-          <Lang c={pageLang} v="Password" />
+          <Lang p={pageLang} w="Password" />
         </h1>
       </div>
       <InsertPassword
@@ -110,7 +110,7 @@
     <div transition:slide>
       <div class="title-section">
         <h1>
-          <Lang c={pageLang} v="Decrypted Text" />
+          <Lang p={pageLang} w="Decrypted Text" />
         </h1>
       </div>
       <MarkedText bind:text showPlainText={false} showHTML={true} />
@@ -143,15 +143,15 @@
   {:else if status == "Show" && !success}
     <div transition:slide>
       <div class="title-section">
-        <h1><Lang c={pageLang} v="Decrypted Text" /></h1>
+        <h1><Lang p={pageLang} w="Decrypted Text" /></h1>
       </div>
       <div class="textarea" transition:slide>
         <div class="errorMessage">
-          <p><Lang c={pageLang} v="Ops, something went wrong." /></p>
+          <p><Lang p={pageLang} w="Ops, something went wrong." /></p>
           <p>
             <Lang
-              c={pageLang}
-              v="Check if the password and the text are correct."
+              p={pageLang}
+              w="Check if the password and the text are correct."
             />
           </p>
         </div>

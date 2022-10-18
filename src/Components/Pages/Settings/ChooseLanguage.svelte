@@ -1,13 +1,13 @@
 <script lang="ts">
-  import Lang from "../../Lang.svelte";
-  import lang from "../../../Stores/Lang";
-  import { translation } from "../../../Languages/Languages";
+  import Lang from "../../UI/Languages/Lang.svelte";
+  import lang from "../../UI/Languages/Lang";
+  import { translation } from "../../UI/Languages/Languages";
 
   let selected = $lang;
 </script>
 
 <div class="select-value">
-  <label for="changeLanguage"><Lang c="menu" v="changeLanguage" /></label>
+  <label for="changeLanguage"><Lang p="menu" w="changeLanguage" /></label>
   <select
     bind:value={selected}
     on:change={() => lang.set(selected)}

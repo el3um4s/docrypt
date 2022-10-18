@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Lang from "../Lang.svelte";
+  import Lang from "./Languages/Lang.svelte";
   import textToConverter from "../../Stores/TextToConverter";
 
   let files;
@@ -11,7 +11,7 @@
 
 <div>
   <label for="cameraFileInput">
-    <span class="button-action"><Lang c="menu" v="useNativeCamera" /></span>
+    <span class="button-action"><Lang p="menu" w="useNativeCamera" /></span>
 
     <!-- The hidden file `input` for opening the native camera -->
     <input

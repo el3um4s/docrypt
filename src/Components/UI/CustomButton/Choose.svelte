@@ -1,7 +1,7 @@
 <script lang="ts">
   import LogoGeneric from "../SVG/LOGO/LogoGeneric.svelte";
 
-  import Lang from "../../Lang.svelte";
+  import Lang from "../Languages/Lang.svelte";
 
   export let logo = LogoGeneric;
   export let title = "title";
@@ -9,16 +9,16 @@
 
   export let pageLang = "Home";
 
-  $: c = pageLang;
+  $: p = pageLang;
 </script>
 
 <button on:click>
   <svelte:component this={logo} height="64px" />
   <h1>
-    <Lang {c} v={title} />
+    <Lang {p} w={title} />
   </h1>
   <h3>
-    <Lang {c} v={subtitle} />
+    <Lang {p} w={subtitle} />
   </h3>
 </button>
 

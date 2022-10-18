@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Lang from "../../Lang.svelte";
+  import Lang from "../Languages/Lang.svelte";
 
   export let label: string = "";
   export let subtitle: string = "";
@@ -8,9 +8,10 @@
 
   export let pageLang = "Home";
 
-  $: c = pageLang;
+  $: p = pageLang;
 
   let button: HTMLElement;
+  // export let onEnterUseClick: boolean = true;
 </script>
 
 <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -19,7 +20,9 @@
   on:click
   tabindex="0"
   on:keydown={(e) => {
+    console.log(e);
     if (e.key === "Enter") {
+      e.preventDefault();
       button.click();
     }
   }}
@@ -33,11 +36,11 @@
   {#if label !== ""}
     <div class="label">
       <div>
-        <Lang {c} v={label} />
+        <Lang {p} w={label} />
       </div>
       {#if subtitle !== ""}
         <div class="subtitle">
-          <Lang {c} v={subtitle} />
+          <Lang {p} w={subtitle} />
         </div>
       {/if}
     </div>
