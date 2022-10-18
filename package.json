@@ -54,6 +54,7 @@
     "@el3um4s/to-try": "^1.0.1",
     "blob-polyfill": "^7.0.20220408",
     "file-saver": "^2.0.5",
+    "idb-keyval": "^6.2.0",
     "js-base64": "^3.7.2",
     "marked": "^4.1.1",
     "marked-extended-tables": "^1.0.5",

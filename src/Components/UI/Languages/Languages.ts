@@ -1,4 +1,17 @@
-export const translation = [
+export type LangSupported = "en" | "it";
+
+export const isOfTypeLangSupported = (
+  keyInput: string
+): keyInput is LangSupported => {
+  return ["en", "it"].includes(keyInput);
+};
+
+interface Translation {
+  id: LangSupported;
+  name: string;
+}
+
+export const translation: Translation[] = [
   { id: "en", name: "English" },
   { id: "it", name: "Italiano" },
 ];

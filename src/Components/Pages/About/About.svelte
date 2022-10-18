@@ -81,6 +81,10 @@
     <li>
       <a href="https://www.npmjs.com/package/@el3um4s/to-try">to-try</a>
     </li>
+    <li>
+      <a href="https://www.npmjs.com/package/idb-keyval">IDB-Keyval</a> by
+      <a href="https://github.com/jakearchibald">Jake Archibald</a>
+    </li>
   </ul>
 
   <p>

@@ -1,12 +1,16 @@
 import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 
-const languageStore: Writable<string> = writable("en");
+import { setLang } from "./IndexDB";
+import type { LangSupported } from "./Languages";
+
+const languageStore: Writable<LangSupported> = writable("en");
 
 const lang = {
   subscribe: languageStore.subscribe,
-  set: (language: string) => {
+  set: (language: LangSupported) => {
     languageStore.set(language);
+    setLang(language);
   },
 };
 

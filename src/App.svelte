@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   import "./css/tailwind.pcss";
   import Header from "./Components/UI/General/Header.svelte";
 
@@ -7,12 +9,12 @@
   import { isOfTypePage } from "./Stores/Page";
 
   import lang from "./Components/UI/Languages/Lang";
+  import { getLang } from "./Components/UI/Languages/IndexDB";
 
-  if (/^it\b/.test(navigator.language)) {
-    lang.set("it");
-  } else {
-    lang.set("en");
-  }
+  onMount(async () => {
+    const langDB = await getLang();
+    lang.set(langDB);
+  });
 
   import Notification from "./Components/UI/Notification/Notification.svelte";
 
