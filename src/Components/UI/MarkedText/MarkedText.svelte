@@ -34,6 +34,134 @@
       clearInterval(intervalID);
     }
   });
+
+  const insertCharInPosition = (
+    s: string,
+    char: string,
+    start: number,
+    end: number
+  ): string => {
+    const before = s.substring(0, start);
+    const after = s.substring(end);
+    return before + char + after;
+  };
+
+  const insertAroundPosition = (p: {
+    string: string;
+    openChar: string;
+    closeChar?: string;
+    start: number;
+    end: number;
+  }): string => {
+    const { string, openChar, start, end } = p;
+    const closeChar = p.closeChar || openChar;
+    const space = string[end - 1] == " " ? 1 : 0;
+    const before = string.substring(0, start);
+    const selection = string.substring(start, end - space);
+    const after = string.substring(end - space);
+    return before + openChar + selection + closeChar + after;
+  };
+
+  const selectText = (start: number, end: number) => {
+    textArea.focus();
+    textArea.setSelectionRange(start, end);
+  };
+
+  const textShortCoder = (p: { openChar: string; closeChar?: string }) => {
+    const start = textArea.selectionStart;
+    const end = textArea.selectionEnd;
+    const { openChar } = p;
+    const closeChar = p.closeChar || openChar;
+    const space = textArea.value[end - 1] == " " ? 1 : 0;
+    textArea.value = insertAroundPosition({
+      string: textArea.value,
+      ...p,
+      start,
+      end,
+    });
+    selectText(start + openChar.length, end + closeChar.length - space);
+    text = textArea.value;
+  };
+
+  const manageText = (e: KeyboardEvent) => {
+    const key = e.key;
+    // console.log(key);
+    const shift = e.shiftKey;
+    const ctrl = e.ctrlKey;
+    const start = textArea.selectionStart;
+    const end = textArea.selectionEnd;
+    const lenghtSelection = end - start;
+
+    match(key)
+      .on("Tab", () => {
+        e.preventDefault();
+        if (shift) {
+          textArea.blur();
+        } else {
+          textArea.value = insertCharInPosition(
+            textArea.value,
+            "\t",
+            start,
+            end
+          );
+        }
+        text = textArea.value;
+      })
+      .on(
+        (key: string) => ["*", "_", "~", "`"].includes(key),
+        () => {
+          if (lenghtSelection > 0) {
+            e.preventDefault();
+            textShortCoder({ openChar: key });
+          }
+        }
+      )
+      .on(
+        (key: string) => ["(", ")"].includes(key),
+        () => {
+          if (lenghtSelection > 0) {
+            e.preventDefault();
+            textShortCoder({ openChar: "(", closeChar: ")" });
+          }
+        }
+      )
+      .on(
+        (key: string) => ["[", "]"].includes(key),
+        () => {
+          if (lenghtSelection > 0) {
+            e.preventDefault();
+            textShortCoder({ openChar: "{", closeChar: "}" });
+          }
+        }
+      )
+      .on(
+        (key: string) => ["{", "}"].includes(key),
+        () => {
+          if (lenghtSelection > 0) {
+            e.preventDefault();
+            textShortCoder({ openChar: "{", closeChar: "}" });
+          }
+        }
+      )
+      .on(
+        (key: string) => ["b", "B"].includes(key),
+        () => {
+          if (lenghtSelection > 0 && ctrl) {
+            e.preventDefault();
+            textShortCoder({ openChar: "**", closeChar: "**" });
+          }
+        }
+      )
+      .on(
+        (key: string) => ["i", "i"].includes(key),
+        () => {
+          if (lenghtSelection > 0 && ctrl) {
+            e.preventDefault();
+            textShortCoder({ openChar: "_", closeChar: "_" });
+          }
+        }
+      );
+  };
 </script>
 
 <section transition:slide>
@@ -78,25 +206,7 @@
           transition:slide
           bind:this={textArea}
           bind:value={text}
-          on:keydown={(e) => {
-            const key = e.key;
-            // const ctrl = e.ctrlKey;
-            const shift = e.shiftKey;
-            match(key).on("Tab", () => {
-              e.preventDefault();
-              if (shift) {
-                textArea.blur();
-              } else {
-                const start = textArea.selectionStart;
-                const end = textArea.selectionEnd;
-                textArea.value =
-                  textArea.value.substring(0, start) +
-                  "\t" +
-                  textArea.value.substring(end);
-                textArea.selectionStart = textArea.selectionEnd = start + 1;
-              }
-            });
-          }}
+          on:keydown={manageText}
         />
       </div>
     {/if}
