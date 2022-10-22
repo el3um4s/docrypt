@@ -9,6 +9,7 @@ publish(
     'public', // path to public directory
     {
         branch: 'gh-pages',
+        remote: 'origin',
         repo: 'https://github.com/el3um4s/docrypt.git', // Update to point to your repository
         user: {
             name: 'Samuele de Tomasi', // update to use your name
@@ -18,7 +19,7 @@ publish(
     },
     (err) => {
         try {
-            console.log('Deploy Complete!');
+            console.log(err || 'Deploy Complete!');
         } catch (e) {
             console.error(e.stack);
             process.exit(1);
